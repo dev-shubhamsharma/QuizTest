@@ -58,7 +58,7 @@ function checkAnswerandNext() {
             score++
             document.getElementById("score").innerHTML = score
             indexNumber++
-            loadNext()
+            loadNext(indexNumber)
         }    
         
     }
