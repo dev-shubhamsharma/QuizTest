@@ -4,74 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZ | NIELIT</title>
-    
-    <link href="style.css" rel="stylesheet">
+    <title>Online-Quiz-Test | OIPL</title>
+
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<body onload="loadNext(0)">
 
-<header>
-    <img src="https://www.icdmai.org/assets/site/images/project/logo/lincoln_logo.jpg" alt="Nielit logo image">
-    
-    <h1>Olevel Mock Test</h1>
-</header>
+<body>
 
-<section>
-    <h2>Score : <span id="score">00</span> / 10</h2>
-    <h2>Question : <span id="current-question">00</span> / 10</h2>
-    <h2>Times left : 
-        <span id="minutes">00</span>
-        <span> : </span>
-        <span id="seconds">00</span>
-    </h2>
-</section>
+    <!-- first screen  -->
+    <div id="form-container">
+        <h2 id="login-title">Student Login</h2>
+        <div id="form">
+            <div class="input-container">
+                <label for="name">Name :</label>
+                <input type="text" name="name" id="name" onclick="clearLoginMsg()" required>  
+            </div>
+            <div class="input-container">
+                <label for="name">Password :</label>
+                <input type="password" name="password" id="password" onclick="clearLoginMsg()" required>  
+            </div>
+            <button id="login-btn" onclick="validateUser()">Start Exam</button>
 
-<main>
-    <aside id="left-section">
-        <form action="#" autocomplete="off" target="_self">
-            <div class="question-container">
-                <h3 id="question"></h3>
-            </div>
-            
-            <div class="option-container">
-                <label for="opt1">
-                    <input type="radio" id="opt1" name="question1">
-                    <span id="option1"></span>
-                </label>
-            </div>
-            
-            <div class="option-container">
-                <label for="opt2">
-                    <input type="radio" id="opt2" name="question1">
-                    <span id="option2"></span>
-                </label>
-            </div>
-            
-            <div class="option-container">
-                <label for="opt3">
-                    <input type="radio" id="opt3" name="question1">
-                    <span id="option3"></span>
-                </label>
-            </div>
-            
-            <div class="option-container">
-                <label for="opt4">
-                    <input type="radio" id="opt4" name="question1">
-                    <span id="option4"></span>
-                </label>
-            </div>
-            
-            <button id="next-btn" onclick="checkAnswerandNext()">Save and Next</button>
-            
-        </form>
-    </aside>
-    
-    <aside id="right-section">
+            <p class="msg" id="login-msg">User id or password is incorrect</p>
+
+        </div>
         
-    </aside>
-</main>
-    
-<script src="main.js">
+    </div>
 
+    <!-- first screen closed -->
+
+    <!-- waiting animation starts-->
+
+    <div class="preloader">
+        <div class="circle"></div>
+        <p class="text">Please wait...<br> Connecting to exam server...</p>
+    </div>
+
+    <!-- waiting animation ends -->
+       
+    <script src="login.js"></script>  
+    <script src="students.js"></script>
+        
 </body>
 </html>

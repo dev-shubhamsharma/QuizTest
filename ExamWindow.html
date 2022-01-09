@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-Quiz-Test | OIPL</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload="startTimer()">
+
+    <!-- main exam window open -->
+
+    
+    <header id="header">
+        <img src="images/logo.png" alt="OIPL logo image">
+        <h1>Olevel Mock Test (Beta)</h1>
+    </header>    
+        
+    <section>
+        <h2 id="score-box">Score : <span id="score-count">00</span> / 10</h2>
+        <h2>Current Question : <span id="current-question">00</span></h2>
+        <h2>Total Questions : <span id="total-question">10</span></h2>
+        <h2>Times left : 
+            <span id="minutes">00</span>
+            <span> : </span>
+            <span id="seconds">00</span>
+        </h2>
+    </section>    
+        
+    <main>
+        <aside id="left-section">
+    <!--         <form action="#" autocomplete="off" target="_self"> -->
+            <div id="container">
+                <div class="question-container">
+                    <h3 id="question"></h3>
+                </div>
+                
+                <div class="option-container">
+                    <label for="opt1">
+                        <input type="radio" id="opt1" name="question1" onclick="clearMsg()">
+                        <span id="option1"></span>
+                    </label>
+                </div>
+                
+                <div class="option-container">
+                    <label for="opt2">
+                        <input type="radio" id="opt2" name="question1" onclick="clearMsg()">
+                        <span id="option2"></span>
+                    </label>
+                </div>
+                
+                <div class="option-container">
+                    <label for="opt3">
+                        <input type="radio" id="opt3" name="question1" onclick="clearMsg()">
+                        <span id="option3"></span>
+                    </label>
+                </div>
+                
+                <div class="option-container">
+                    <label for="opt4">
+                        <input type="radio" id="opt4" name="question1" onclick="clearMsg()">
+                        <span id="option4"></span>
+                    </label>
+                </div>
+                
+                <button id="next-btn" onclick="checkAnswerAndNext()">Save and Next
+    <!--                 <span></span> -->
+                </button>
+                <p id="msg" class="msg"></p>
+    
+            </div>
+    <!--         </form> -->
+        </aside>
+        
+        <aside id="right-section">
+            
+        </aside>
+
+
+    </main>    
+
+
+    <!-- main exam windows closed -->
+
+
+    <!-- result window open -->
+
+
+    <div id="overlay">
+        <div class="result-container">
+            <h2>Test Result</h2>
+            <p class="text">Student Name : <span id="name"></span></p>
+            <p class="text">Total time taken : <span id="time-taken"></span></p>
+            <p class="text">Total Score : <span id="score"></span></p>
+            <p class="text">Grade : <span id="grade"></span></p>
+            <p class="text">Average Time per Question : <span id="average-time"></span></p>
+            <p class="text">Wrong Answers : <span id="wrong"></span></p>
+
+            <button id="download-btn">Download Result</button>
+            
+        </div>
+    </div>
+
+    <!-- result window closed -->
+
+    <script src="timer.js"></script>   
+    <script src="main.js"></script>    
+    <script src="questions.js"></script>
+    <script src="result.js"></script>
+
+        
+</body>
+</html>
