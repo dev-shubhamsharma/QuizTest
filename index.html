@@ -4,49 +4,285 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online-Quiz-Test | OIPL</title>
+    <title>Document</title>
+
+    <style>
+
+        :root {
+            --header-height : 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
 
-    <!-- css link -->
-    <link rel="stylesheet" href="style.css">
 
+        header {
+            /* height: var(--header-height); */
+            background-color: white;
+            border-bottom: 2px solid grey;
+        }
+
+        #logo {
+            height: var(--header-height);
+            margin: 8px 30px;
+        }
+
+        main {
+            /* width: 100vw; */
+            height: calc(100vh - var(--header-height));
+            /* background-color: yellow; */
+            display: flex;
+            overflow: scroll;
+        }
+
+        #left {
+            width: 75%;
+            height: 100%;
+            padding: 40px;
+            border-right: 2px solid grey;
+            position: sticky;
+            top: 0;
+        }
+
+        #right {
+            width: 25%;
+            align-self: flex-start;
+            background-color: whitesmoke;
+            padding: 20px;
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+        }
+
+        .question-btn {
+            height: 3rem;
+            width: 3rem;
+            font-size: medium;
+            background-color: rgb(212, 64, 64);
+            color: #fff;
+            border: none;
+            cursor: pointer;  
+            margin: 0;  
+        }
+
+        .question-no {
+            /* display: none; */
+        }
+
+        .answer {
+            color: green;
+            /* display: none; */
+        }
+
+        .question-container {
+            border:1px solid grey;
+            padding: 10px 20px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .option-container {
+            border: 1px solid grey;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        
+
+
+
+
+
+
+
+    </style>
 </head>
+<body onload="loadQuestions()">
+    <header>
+        <img id="logo" src="images/logo.png" alt="OIPL logo image">
+    </header>
 
-<body>
-
-    <!-- first screen  -->
-    <div id="form-container">
-        <h2 id="login-title">Student Login</h2>
-        <div id="form">
-            <div class="input-container">
-                <label for="name">Name :</label>
-                <input type="text" name="name" id="name" onclick="clearLoginMsg()" required>  
+    <main>
+        <aside id="left"> 
+            <div class="question-container">
+                <h3 class="question">This is the question?</h3>
             </div>
-            <div class="input-container">
-                <label for="name">Password :</label>
-                <input type="password" name="password" id="password" onclick="clearLoginMsg()" required>  
+            <div class="option-container">
+                <label for="opt1">
+                    <input type="radio" name="question" id="opt1" value="A" onchange="setOption(this)">
+                    <span id="option1">This is option1</span>
+                </label>
             </div>
-            <button id="login-btn" onclick="validateUser()">Start Exam</button>
+            <div class="option-container">
+                <label for="opt2">
+                    <input type="radio" name="question" id="opt2" value="B" onchange="setOption(this)">
+                    <span id="option2">This is option2</span>
+                </label>
+            </div>
+            <div class="option-container">
+                <label for="opt3">
+                    <input type="radio" name="question" id="opt3" value="C" onchange="setOption(this)">
+                    <span id="option3">This is option3</span>
+                </label>
+            </div>
+            <div class="option-container">
+                <label for="opt4">
+                    <input type="radio" name="question" id="opt4" value="D" onchange="setOption(this)">
+                    <span id="option4">This is option4</span>
+                </label>
+            </div>
+        </aside>
 
-            <p class="msg" id="login-msg">User id or password is incorrect</p>
+        <aside id="right">
+            <!-- <button class="question-btn">1
+                <span class="question-no">0</span>
+                <span class="answer">A</span>
+            </button> -->
+            
+        </aside>
+    </main>
 
-        </div>
+    <script src="questions.js"></script>
+
+    <script>
+
+        var totalQuestionsForExam = 30
+        var currentQuestion = 1;
+        var clickedId = NaN;
+
+        function loadQuestions() {
+            let i=0;
+            let indexList = []
+
+            while(i<totalQuestionsForExam) {
+                let btn = document.createElement("button")
+                btn.classList.add("question-btn")
+                btn.id = "btn-"+(i+1).toString()
+                btn.innerHTML = (i+1).toString()+","
+
+                let span = document.createElement("span")
+                span.classList.add("question-no")
+
+                // generate random number
+                let num = generateRandomNumber(0,200)
+                while(indexList.includes(num)) {
+                    num = generateRandomNumber(0,200)
+                }
+                indexList.push(num)
+                span.innerHTML = num.toString()
+
+                let ans = document.createElement("span")
+                ans.classList.add("answer")
+                ans.innerHTML = "None";
+
+                btn.appendChild(span)
+                btn.appendChild(ans)
+                document.querySelector("#right").appendChild(btn)
+                btn.addEventListener('click', showQuestion);
+                // btn.addEventListener("click",getQuestionsFromList(btn.id))
+                i+=1
+            }
+
+            
+            
+        }
+
+        // function clickHandler(event) {
+        //     document.querySelector("")
+        // }
+
+        function clearSelection() {
+            let elem = document.getElementsByName("question")
+            elem.forEach(element => {
+                element.checked = false
+            });
+        }
+
         
-    </div>
 
-    <!-- first screen closed -->
 
-    <!-- waiting animation starts-->
+        function showQuestion(event) {
 
-    <div class="preloader">
-        <div class="circle"></div>
-        <p class="text">Please wait...<br> Connecting to exam server...</p>
-    </div>
+            clearSelection()
+            var btnId = this.id
+            // currentQuestion = document.querySelector("#"+btnId).innerHTML
 
-    <!-- waiting animation ends -->
-       
-    <script src="login.js"></script>  
-    <script src="students.js"></script>
-        
+            // console.log(currentQuestion)
+            clickedId = btnId
+            let index = document.querySelector("#"+btnId+" .question-no").innerHTML
+            let selectedAns = document.querySelector("#"+btnId+" .answer").innerHTML
+            console.log(index)
+
+            document.querySelector(".question").innerHTML = questions[index].question
+            document.querySelector("#option1").innerHTML = questions[index].optionA
+            document.querySelector("#option2").innerHTML = questions[index].optionB
+            document.querySelector("#option3").innerHTML = questions[index].optionC
+            document.querySelector("#option4").innerHTML = questions[index].optionD
+
+            // check if previously answered or not
+            let fetchedAnswer = document.querySelector("#"+clickedId+" .answer").innerHTML
+            if(fetchedAnswer != "None") {
+                if(fetchedAnswer == "A") {
+                    document.querySelector("#opt1").checked = true
+                }
+                else if(fetchedAnswer == "B") {
+                    document.querySelector("#opt2").checked = true
+                }
+                else if(fetchedAnswer == "C") {
+                    document.querySelector("#opt3").checked = true
+                }
+                else if(fetchedAnswer == "D") {
+                    document.querySelector("#opt4").checked = true
+                }
+            }
+            
+            
+            
+            
+        }
+
+        function setOption(obj) {
+            document.querySelector("#"+clickedId+" .answer").innerHTML = obj.value
+
+        }
+
+
+
+
+
+
+        // function getQuestionsFromList(btnId) {
+        //     let index = document.querySelector("#btn-1 .question-no")
+        //     document.querySelector(".question").innerHTML = questions[index].question
+        // }
+
+
+        // min and max included
+        function generateRandomNumber(min, max) { 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+
+
+    </script>
+
+    
+
+    
 </body>
 </html>
