@@ -1,288 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homepage | OIPL</title>
+
+    <!-- font-awesome 4 icons cdn link -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- google font cdn link -->
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+
+    <!-- css style link -->
+    <link rel="stylesheet" href="style.css">
 
     <style>
-
-        :root {
-            --header-height : 50px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
+        section.section-header {
+            background: #dcdde1;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 30px;
+            color: #192a56;
+            font-size: 3vmin;
         }
 
-
-
-        header {
-            /* height: var(--header-height); */
-            background-color: white;
-            border-bottom: 2px solid grey;
-        }
-
-        #logo {
-            height: var(--header-height);
-            margin: 8px 30px;
-        }
-
-        main {
-            /* width: 100vw; */
-            height: calc(100vh - var(--header-height));
-            /* background-color: yellow; */
+        .course-section {
             display: flex;
-            overflow: scroll;
-        }
-
-        #left {
-            width: 75%;
-            height: 100%;
+            flex-direction: row;
             padding: 40px;
-            border-right: 2px solid grey;
-            position: sticky;
-            top: 0;
-        }
-
-        #right {
-            width: 25%;
-            align-self: flex-start;
-            background-color: whitesmoke;
-            padding: 20px;
-            display: grid;
-            grid-gap: 1rem;
-            grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
-        }
-
-        .question-btn {
-            height: 3rem;
-            width: 3rem;
-            font-size: medium;
-            background-color: rgb(212, 64, 64);
-            color: #fff;
-            border: none;
-            cursor: pointer;  
-            margin: 0;  
-        }
-
-        .question-no {
-            /* display: none; */
-        }
-
-        .answer {
-            color: green;
-            /* display: none; */
-        }
-
-        .question-container {
-            border:1px solid grey;
-            padding: 10px 20px;
-            border-radius: 3px;
-            margin-bottom: 20px;
-        }
-
-        .option-container {
-            border: 1px solid grey;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            display: flex;
+            background: #dcdde1;
             align-items: center;
-            /* justify-content: center; */
+            justify-content: space-between;
         }
 
-        input[type="radio"] {
-            margin-right: 10px;
+        .card {
+            /* border: 1px solid grey; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            position: relative;
+            width:45vmin;
+            border-radius: 20px;
+            padding-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+            margin: 0 10px;
         }
 
-        
+        .img-wrapper {
+            width: 100%;
+            height: 70%;
+            /* border: 1px solid red; */
+            overflow: hidden;
+        }
+
+        .img-wrapper img {
+            min-height: 100%;
+            width: 100%;
+        }
+
+        h3.course-title {
+            font-size: 4vmin;
+            margin: 10px 20px;
+            color: #2f3640;
+        }
+
+        .duration {
+            font-size: 15px;
+            margin: 0 20px;
+        }
+
+        .level {
+            font-size: 12px;
+            margin: 10px 20px;
+        }
+
+        .more-btn {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(to left,#1488CC,#2B32B2) ;
+            padding: 8px 20px;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+        }
 
 
+        @media(max-width:1111px) {
+            .course-section {
+                overflow:scroll;
+                -webkit-overflow-scrolling: touch;
+                
+            }
 
+            .course-section::-webkit-scrollbar {
+                display: none;
+            }
 
+            .card {
+                min-width: 50vmin;
+            }
 
+            h3.course-title {
+                font-size: 4.5vmin;
+            }
+        }
+
+        @media(max-width: 500px){
+            .course-section {
+                padding: 30px 20px;
+            }
+
+            .card {
+                min-width: 70vmin;
+            }
+
+            h3.course-title {
+                font-size: 6vmin;
+            }
+
+            section.section-header {
+                font-size: 5vmin;
+            }
+        }
 
 
     </style>
+    
+
 </head>
-<body onload="loadQuestions()">
+<body>
     <header>
-        <img id="logo" src="images/logo.png" alt="OIPL logo image">
+        <a href="index.html"><h1 id="logo">OIPL</h1></a>
+        <label for="menu-check">
+            <input type="checkbox" name="menu" id="menu-check">
+            <div class="menu-btn">
+                <div class="top line"></div>
+                <div class="middle line"></div>
+                <div class="bottom line"></div>
+            </div>
+
+            <ul id="nav">
+                <li><a href="index.html" target="" class="links">Home</a></li>
+                <li><a href="#courses" target="" class="links">Courses</a></li>
+                <li><a href="assesment.html" target="_self" class="links">Assessment</a></li>
+                <li><a href="signin.html" target="" class="links">Sign in</a></li>
+                <li><a href="#contact-form" target="" class="links">Contact</a></li>
+            </ul>
+
+        </label>
     </header>
 
-    <main>
-        <aside id="left"> 
-            <div class="question-container">
-                <h3 class="question">This is the question?</h3>
-            </div>
-            <div class="option-container">
-                <label for="opt1">
-                    <input type="radio" name="question" id="opt1" value="A" onchange="setOption(this)">
-                    <span id="option1">This is option1</span>
-                </label>
-            </div>
-            <div class="option-container">
-                <label for="opt2">
-                    <input type="radio" name="question" id="opt2" value="B" onchange="setOption(this)">
-                    <span id="option2">This is option2</span>
-                </label>
-            </div>
-            <div class="option-container">
-                <label for="opt3">
-                    <input type="radio" name="question" id="opt3" value="C" onchange="setOption(this)">
-                    <span id="option3">This is option3</span>
-                </label>
-            </div>
-            <div class="option-container">
-                <label for="opt4">
-                    <input type="radio" name="question" id="opt4" value="D" onchange="setOption(this)">
-                    <span id="option4">This is option4</span>
-                </label>
-            </div>
-        </aside>
 
-        <aside id="right">
-            <!-- <button class="question-btn">1
-                <span class="question-no">0</span>
-                <span class="answer">A</span>
-            </button> -->
-            
-        </aside>
+
+    <!-- main section -->
+
+
+    <main>
+        <h2>Learn, Practice & Get&nbsp;Certified</h2>
+        <h3>We're always here to&nbsp;mentor&nbsp;you</h3>
+        <a href="#courses" target="_self" id="sign-in-btn">View Courses</a>
+
     </main>
 
-    <script src="questions.js"></script>
 
-    <script>
+    <section class="section-header">
+        <h2 class="section-heading">Featured Courses</h2>
+    </section>
 
-        var totalQuestionsForExam = 30
-        var currentQuestion = 1;
-        var clickedId = NaN;
+    <section class="course-section" id="courses">
 
-        function loadQuestions() {
-            let i=0;
-            let indexList = []
 
-            while(i<totalQuestionsForExam) {
-                let btn = document.createElement("button")
-                btn.classList.add("question-btn")
-                btn.id = "btn-"+(i+1).toString()
-                btn.innerHTML = (i+1).toString()+","
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/tally.png" alt="tally course image">
+            </div>
+            <h3 class="course-title">Accounting using Tally Prime</h3>
+            <p class="duration">3 Months</p>
+            <p class="level">Beginner <span class="fa fa-signal"></span></p>
+            <a href="#" class="more-btn">More Details</a>
+        </div>
 
-                let span = document.createElement("span")
-                span.classList.add("question-no")
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images//ccc.png" alt="course image">
+            </div>
+            <h3 class="course-title">Course on Computer Concept</h3>
+            <p class="duration">3 Months</p>
+            <p class="level">Beginner <span class="fa fa-signal"></span></p>
+            <a href="#" class="more-btn">More Details</a>
+        </div>
 
-                // generate random number
-                let num = generateRandomNumber(0,200)
-                while(indexList.includes(num)) {
-                    num = generateRandomNumber(0,200)
-                }
-                indexList.push(num)
-                span.innerHTML = num.toString()
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/olevel.png" alt="course image">
+            </div>
+            <h3 class="course-title">NIELIT O'level Diploma</h3>
+            <p class="duration">12 Months</p>
+            <p class="level">Beginner <span class="fa fa-signal"></span></p>
+            <a href="#" class="more-btn">More Details</a>
+        </div>
 
-                let ans = document.createElement("span")
-                ans.classList.add("answer")
-                ans.innerHTML = "None";
+        <div class="card">
+            <div class="img-wrapper">
+                <img src="images/web.png" alt="course image">
+            </div>
+            <h3 class="course-title">Web Design and Development</h3>
+            <p class="duration">3 Months</p>
+            <p class="level">Intermediate <span class="fa fa-signal"></span></p>
+            <a href="#" class="more-btn">More Details</a>
+        </div>
 
-                btn.appendChild(span)
-                btn.appendChild(ans)
-                document.querySelector("#right").appendChild(btn)
-                btn.addEventListener('click', showQuestion);
-                // btn.addEventListener("click",getQuestionsFromList(btn.id))
-                i+=1
-            }
+    </section>
 
-            
-            
-        }
 
-        // function clickHandler(event) {
-        //     document.querySelector("")
-        // }
+    
 
-        function clearSelection() {
-            let elem = document.getElementsByName("question")
-            elem.forEach(element => {
-                element.checked = false
-            });
-        }
+    <!-- footer section -->
 
+    <footer>
+        <section class="left">
+            <h2><span class="fa fa-map-marker map-point"></span>Institute address</h2>
+            <address>
+                <h3>Okeanos Infotech Pvt. Ltd.</h3>
+                97, Samarpana, Near ICICI Bank,<br>
+                Civil lines, Gonda<br>
+                Uttar Pradesh<br>
+                India - 271003
+            </address>
+
+            <div class="social">
+                <span class="fa fa-facebook social-icon"></span>
+                <span class="fa fa-instagram social-icon"></span>
+                <span class="fa fa-youtube social-icon"></span>
+                <span class="fa fa-linkedin social-icon"></span>
+                <span class="fa fa-google-plus social-icon"></span>
+            </div>
+
+            <p>All rights reserved.<br>Copyright &copy; oipl-2022</p>
+            <p>Designed & developed by Shubham&nbsp;Sharma</p>
+           
+        </section>
         
+        
+        
+        <section class="right">
+            <h2>Enquiry form</h2>
+            <form action="#" autocomplete="off" id="contact-form">
+                <div class="input-container">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="John Doe">
+                </div>
+                
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="johndoe@example.com">
+                </div>
+                
+                <div class="input-container">
+                    <label for="message">Message</label>
+                    <textarea placeholder="Write your message here"></textarea>
+                </div>
+                
+                <div class="input-container">
+                    <input type="submit" id="send-btn" value="Send">
+                </div>
+            </form>
+        </section>
 
 
-        function showQuestion(event) {
-
-            clearSelection()
-            var btnId = this.id
-            // currentQuestion = document.querySelector("#"+btnId).innerHTML
-
-            // console.log(currentQuestion)
-            clickedId = btnId
-            let index = document.querySelector("#"+btnId+" .question-no").innerHTML
-            let selectedAns = document.querySelector("#"+btnId+" .answer").innerHTML
-            console.log(index)
-
-            document.querySelector(".question").innerHTML = questions[index].question
-            document.querySelector("#option1").innerHTML = questions[index].optionA
-            document.querySelector("#option2").innerHTML = questions[index].optionB
-            document.querySelector("#option3").innerHTML = questions[index].optionC
-            document.querySelector("#option4").innerHTML = questions[index].optionD
-
-            // check if previously answered or not
-            let fetchedAnswer = document.querySelector("#"+clickedId+" .answer").innerHTML
-            if(fetchedAnswer != "None") {
-                if(fetchedAnswer == "A") {
-                    document.querySelector("#opt1").checked = true
-                }
-                else if(fetchedAnswer == "B") {
-                    document.querySelector("#opt2").checked = true
-                }
-                else if(fetchedAnswer == "C") {
-                    document.querySelector("#opt3").checked = true
-                }
-                else if(fetchedAnswer == "D") {
-                    document.querySelector("#opt4").checked = true
-                }
-            }
-            
-            
-            
-            
-        }
-
-        function setOption(obj) {
-            document.querySelector("#"+clickedId+" .answer").innerHTML = obj.value
-
-        }
+    </footer>
 
 
-
-
-
-
-        // function getQuestionsFromList(btnId) {
-        //     let index = document.querySelector("#btn-1 .question-no")
-        //     document.querySelector(".question").innerHTML = questions[index].question
-        // }
-
-
-        // min and max included
-        function generateRandomNumber(min, max) { 
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
-
-
-
-    </script>
-
-    
-
-    
 </body>
 </html>

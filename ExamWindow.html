@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online-Quiz-Test | OIPL</title>
+    <title>Online Test | OIPL</title>
 
     <!-- css link -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="exam.css">
 
+    <!-- bootstrap cdn link -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+    
 </head>
 
-<body onload="startTimer()">
+<!-- add questions file and then start timer -->
+<body onload="addQuestionFile()">
 
     <!-- main exam window open -->
 
     
-    <header id="header">
+    <header id="header" ondblclick="document.documentElement.requestFullscreen()">
         <img src="images/logo.png" alt="OIPL logo image">
-        <h1>Olevel Mock Test (Beta)</h1>
+        <h1 id="exam-title">CCC/OLevel Online&nbsp;Exam</h1>
     </header>    
         
     <section>
-        <h2 id="score-box">Score : <span id="score-count">00</span> / 10</h2>
-        <h2>Current Question : <span id="current-question">00</span></h2>
-        <h2>Total Questions : <span id="total-question">10</span></h2>
+        <h2 id="score-box">Score : <span id="score-count">00</span></h2>
+        <h2>Question : <span id="current-question"></span> / <span id="total-question"></span></h2>
         <h2>Times left : 
             <span id="minutes">00</span>
-            <span> : </span>
+            <span>&nbsp;:&nbsp;</span>
             <span id="seconds">00</span>
         </h2>
     </section>    
@@ -40,28 +44,28 @@
                     <h3 id="question"></h3>
                 </div>
                 
-                <div class="option-container">
+                <div class="first-option-container option-container">
                     <label for="opt1">
                         <input type="radio" id="opt1" name="question1" onclick="clearMsg()">
                         <span id="option1"></span>
                     </label>
                 </div>
                 
-                <div class="option-container">
+                <div class="second-option-container option-container">
                     <label for="opt2">
                         <input type="radio" id="opt2" name="question1" onclick="clearMsg()">
                         <span id="option2"></span>
                     </label>
                 </div>
                 
-                <div class="option-container">
+                <div class="third-option-container option-container">
                     <label for="opt3">
                         <input type="radio" id="opt3" name="question1" onclick="clearMsg()">
                         <span id="option3"></span>
                     </label>
                 </div>
                 
-                <div class="option-container">
+                <div class="fourth-option-container option-container">
                     <label for="opt4">
                         <input type="radio" id="opt4" name="question1" onclick="clearMsg()">
                         <span id="option4"></span>
@@ -69,7 +73,7 @@
                 </div>
                 
                 <button id="next-btn" onclick="checkAnswerAndNext()">Save and Next
-    <!--                 <span></span> -->
+                    <!-- <span></span> -->
                 </button>
                 <p id="msg" class="msg"></p>
     
@@ -78,6 +82,18 @@
         </aside>
         
         <aside id="right-section">
+
+            <!-- ************   Hidden form   ***************** -->
+
+            <form id="hidden-form" style="display:none;" target="_blank" action="https://api.sheetmonkey.io/form/2dRujg2cPqh2hGvARBYX7i" method="post" autocomplete="off">
+                <input id="name-box" name="name" type="text" placeholder="Enter name" required>
+                <input id="marks-box" name="marks" type="number" placeholder="marks" required>
+                <input id="testname-box" name="testname" type="text" placeholder="testname" required>
+                <input id="grade-box" name="grade" type="text" placeholder="grade" required>
+                <input id="date-box" name="date" type="text" placeholder="date" required>
+                <input id="time-box" name="time" type="text" placeholder="time" required>
+                <button id="send-btn" type="submit">Send</button>
+            </form>
             
         </aside>
 
@@ -91,7 +107,7 @@
     <!-- result window open -->
 
 
-    <div id="overlay">
+    <!-- <div id="overlay">
         <div class="result-container">
             <h2>Test Result</h2>
             <p class="text">Student Name : <span id="name"></span></p>
@@ -104,14 +120,99 @@
             <button id="download-btn">Download Result</button>
             
         </div>
-    </div>
+    </div> -->
 
     <!-- result window closed -->
 
+    <script src="testnames.js"></script>
     <script src="timer.js"></script>   
-    <script src="main.js"></script>    
-    <script src="questions.js"></script>
-    <script src="result.js"></script>
+    
+    <script src="main.js"></script>
+    
+
+    <script>
+
+        function addQuestionFile() {
+
+            if(window.localStorage.getItem("username") == null || window.localStorage.getItem("username") == undefined)
+            {
+                // console.log("returned to home")
+                window.open("index.html","_self")
+            }
+            else {
+
+
+                let url = window.location.search.toString()
+                let i = url.indexOf("=")
+                let testId = url.substring(i+1)
+                console.log(testId)
+
+                if(testId!="") {
+
+                    // create empty file to place js file name into it
+                    let fileName = NaN
+                    for (let index = 0; index < tests.length; index++) {
+                        if(tests[index].id == testId) {
+                            fileName = tests[index].filename
+                        }
+                
+                    }
+            
+
+                    let fileScript = document.createElement("script")
+                    fileScript.src = fileName    
+
+                    try {
+                
+                        document.body.append(fileScript)
+
+                    } 
+                    catch (error) {
+                        console.log("Questions File Not Found\n"+error)
+                    }
+                
+
+                    fileScript.onload = function() {
+                        startTimer()
+                    }
+                }
+                else {
+                    alert("Questions Not Found!\nPlease Start over...!")
+                    window.open("assesment.html","_self")
+                }
+
+
+            }
+
+            
+
+            
+            
+
+
+        }
+
+        
+    </script>
+
+    
+
+    <!-- <script src="questions.js"></script> -->
+    <!-- <script src="result.js"></script> -->
+
+
+    <script>
+
+        // to disable the keyboard
+        function disable() {
+            document.onkeydown = function (e) {
+                return false;
+            }
+        }
+
+
+
+    </script>
 
         
 </body>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Test | OIPL</title>
+
+    <!-- css link -->
+    <link rel="stylesheet" href="exam.css">
+
+    <!-- bootstrap cdn link -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+
+</head>
+
+<body onload="startTimer()">
+
+    <!-- main exam window open -->
+
+    
+    <header id="header" ondblclick="document.documentElement.requestFullscreen()">
+        <img src="images/logo.png" alt="OIPL logo image">
+        <h1>CCC/OLevel Online&nbsp;Exam</h1>
+    </header>    
+        
+    <section>
+        <h2 id="score-box">Score : <span id="score-count">00</span></h2>
+        <h2>Question : <span id="current-question"></span> / <span id="total-question"></span></h2>
+        <h2>Times left : 
+            <span id="minutes">00</span>
+            <span>&nbsp;:&nbsp;</span>
+            <span id="seconds">00</span>
+        </h2>
+    </section>    
+        
+    <main>
+        <aside id="left-section">
+    <!--         <form action="#" autocomplete="off" target="_self"> -->
+            <div id="container">
+                <div class="question-container">
+                    <h3 id="question"></h3>
+                </div>
+                
+                <div class="first-option-container option-container">
+                    <label for="opt1">
+                        <input type="radio" id="opt1" name="question1" onclick="clearMsg()">
+                        <span id="option1">True</span>
+                    </label>
+                </div>
+                
+                <div class="second-option-container option-container">
+                    <label for="opt2">
+                        <input type="radio" id="opt2" name="question1" onclick="clearMsg()">
+                        <span id="option2">False</span>
+                    </label>
+                </div>
+                
+                <button id="next-btn" onclick="checkAnswerAndNext()">Save and Next
+                    <!-- <span></span> -->
+                </button>
+                <p id="msg" class="msg"></p>
+    
+            </div>
+    <!--         </form> -->
+        </aside>
+        
+        <aside id="right-section">
+
+            <!-- ************   Hidden form   ***************** -->
+
+            <form id="hidden-form" style="display: none;" action="https://api.sheetmonkey.io/form/2dRujg2cPqh2hGvARBYX7i" method="post" autocomplete="off">
+                <input id="name-box" name="name" type="text" placeholder="Enter name" required>
+                <input id="marks-box" name="marks" type="number" placeholder="marks" required>
+                <input id="grade-box" name="grade" type="text" placeholder="grade" required>
+                <input id="date-box" name="date" type="text" placeholder="date" required>
+                <input id="time-box" name="time" type="text" placeholder="time" required>
+                <button id="send-btn" type="submit">Send</button>
+            </form>
+        
+        </aside>
+
+
+    </main>    
+
+    <!-- *********************  javascipt code starts  ***************************** -->
+
+    <script>
+        
+        //  total time in minutes 
+    var totalTiming = 30
+    // declared total questions to attempt
+    var totalQuestions = 30
+
+    // total questions added in truefalse.js file
+    var totalQuestionsAddedInList = 120
+
+
+
+    var secondsCounter = 0
+
+    function startTimer() {
+
+        if(window.localStorage.getItem("username") == null || window.localStorage.getItem("username") == undefined)
+        {
+            window.open("signin.html","_self")
+        }
+
+        // to disable the keyboard
+        disable()
+
+        var startMinutes = totalTiming
+        var startSeconds = 60  // also change on update time 
+
+        var minutes = startMinutes
+        var seconds = startSeconds
+    
+        minutes-=1
+        document.getElementById("minutes").innerHTML = minutes
+    // document.getElementById("seconds").innerHTML = seconds - 1
+
+        loadNext(0)
+        document.getElementById("total-question").innerHTML = totalQuestions.toString()
+
+        let interval = setInterval(() => {
+
+            if((minutes == 0 && seconds == 0)) {
+
+                alert("Time end")
+                clearInterval(interval)
+                // alert("timer ends")
+                submitExam("TimeEnd")
+
+            }
+
+            if(seconds == 0) {
+                //************************************************** */
+
+                seconds = 60       // update seconds here also
+
+                //**************************************************** */
+                minutes-=1     
+                if(minutes <= 9)
+                    document.getElementById("minutes").innerHTML = "0"+minutes
+                else
+                    document.getElementById("minutes").innerHTML = minutes
+
+            
+            }
+        
+            seconds-=1      
+            if(seconds <= 9)
+                document.getElementById("seconds").innerHTML = "0"+seconds
+            else 
+                document.getElementById("seconds").innerHTML = seconds
+        
+
+                console.log("seconds",secondsCounter)
+                secondsCounter+=1
+            // console.log(secondsCounter)
+
+        }, 1000);
+    }
+
+
+
+// ****************  main javascript code  **********************************************
+
+
+
+let score = 0
+let currentQuestion = 0
+let wrongAnswers = 0
+let indexNumber = 0
+var indexList = [0];
+
+
+// clear error message when an option is selected
+function clearMsg() {
+    document.getElementById("msg").innerHTML = ""
+}
+
+
+function loadNext(index) {
+    
+    clearSelection()
+    
+    // alert(window.localStorage.getItem("name")+" "+window.localStorage.getItem("surname")+"is logged in");
+
+//     to display score and question no on page load
+    // document.getElementById("score").innerHTML = score
+    // alert("hello")
+    
+    document.getElementById("question").innerHTML = trueFalseQuestions[indexNumber].question
+    
+    
+//     if current question reaches at second last question then change save btn text to submit
+    if(document.getElementById("current-question").innerHTML == (totalQuestions - 1).toString()) {
+        document.getElementById("next-btn").innerHTML = "Submit"
+    }
+    
+//     increament question number 
+    currentQuestion++
+    document.getElementById("current-question").innerHTML = currentQuestion
+    
+}
+
+
+//  to clear all the selected radio buttons
+function clearSelection() {
+    var elem = document.getElementsByName("question1");
+    for(var i=0;i<elem.length;i++)
+        elem[i].checked = false;
+}
+
+
+// to check the answer on click on save
+function checkAnswerAndNext() {
+
+    var elements = document.getElementsByName("question1")
+
+    if(elements[0].checked == false && elements[1].checked == false) {
+        // alert("hello")
+        document.getElementById("msg").innerHTML = "Please select an option";
+    }
+    else {
+        var selectedAnswer = "";
+        var elements = document.getElementsByName("question1");       
+
+        if(elements[0].checked==true) {
+            selectedAnswer = document.querySelector("#opt1 ~ span").innerHTML
+        }
+        else if(elements[1].checked==true) {
+            selectedAnswer = document.querySelector("#opt2 ~ span").innerHTML
+        }
+
+
+
+        if(selectedAnswer == trueFalseQuestions[indexNumber].correctAnswer) {
+            score++
+            console.log('score'+score)
+            document.getElementById("score-count").innerHTML = score
+        }
+        
+    }
+
+    // **********************************************
+
+    var correctAnswer = trueFalseQuestions[indexNumber].correctAnswer;
+
+    if(document.querySelector("#opt1 ~ span").innerHTML == correctAnswer) {
+        document.querySelector(".first-option-container").style.borderColor = "green"
+        document.querySelector(".first-option-container").style.background = "rgba(0,255,0,0.2)"
+    }
+    else {
+        document.querySelector(".first-option-container").style.borderColor = "red"
+        document.querySelector(".first-option-container").style.background = "rgba(255,0,0,0.2)"
+    }
+        
+
+    if(document.querySelector("#opt2 ~ span").innerHTML == correctAnswer) {
+        document.querySelector(".second-option-container").style.borderColor = "green"
+        document.querySelector(".second-option-container").style.background = "rgba(0,255,0,0.2)"
+    }
+    else {
+        document.querySelector(".second-option-container").style.borderColor = "red"
+        document.querySelector(".second-option-container").style.background = "rgba(255,0,0,0.2)"
+    }
+
+
+
+
+    setTimeout(() => {
+        // var elements = document.getElementsByName("question1")
+        // //     to check if any radio button is not selected
+    
+        // if(elements[0].checked == false && elements[1].checked == false && elements[2].checked == false && elements[3].checked == false) {
+        // // alert("hello")
+        //     document.getElementById("msg").innerHTML = "Please select an option"
+        // }
+        // else {
+        //     var selectedAnswer = "";
+        //     var elements = document.getElementsByName("question1");       
+
+        //     if(elements[0].checked==true) {
+        //         selectedAnswer = document.querySelector("#opt1 ~ span").innerHTML
+        //     }
+        //     else if(elements[1].checked==true) {
+        //         selectedAnswer = document.querySelector("#opt2 ~ span").innerHTML
+        //     }
+        //     else if(elements[2].checked==true) {
+        //         selectedAnswer = document.querySelector("#opt3 ~ span").innerHTML
+        //     }
+        //     else if(elements[3].checked==true) {
+        //         selectedAnswer = document.querySelector("#opt4 ~ span").innerHTML
+        //     }
+            
+        //     if(selectedAnswer == questions[indexNumber].correctAnswer) {
+        //         score++
+        //         console.log('score'+score)
+        //         document.getElementById("score-count").innerHTML = score
+        //     }
+            if(currentQuestion == totalQuestions.toString()) {
+            // submit the paper and display result
+                submitExam("QuestionEnd")            
+            }
+            else {
+
+            // indexNumber++
+                let index = generateRandomNumber(0, totalQuestionsAddedInList-1);
+            
+            // to check if current index question is already displayed
+                while(indexList.includes(index) == true) {
+                    index = generateRandomNumber(0,totalQuestionsAddedInList - 1);
+                }
+            
+                indexList.push(index)
+                console.log(indexList);
+                indexNumber = index
+                
+                // reset border color before loading next question
+
+                var options = document.querySelectorAll(".option-container")
+                console.log(options)
+
+                for(var i=0; i<options.length; i++) {
+                    options[i].style.borderColor = '#eee';
+                    options[i].style.background = '#fff';
+                }
+
+                // console.log(indexNumber)
+                loadNext(indexNumber)
+            }
+        // }
+        
+    }, 2000); 
+}
+
+
+
+
+
+//  submit exam after time ends and onclick of submit button
+
+function submitExam(str) {
+
+    window.localStorage.setItem("trueFalseScore",score.toString())
+    window.localStorage.setItem("totalTrueFalseQuestions",totalQuestions.toString())
+    
+    // calculate total score and grade
+    let username = window.localStorage.getItem("username")
+    let mcqscore = parseInt(window.localStorage.getItem("mcqScore"))
+    let mcqtq = parseInt(window.localStorage.getItem("totalMcqQuestions"))
+
+    let totalScore = mcqscore + score
+    let tq = mcqtq +  totalQuestions
+    
+
+    
+    let grade = ""
+    let percentage = totalScore*100/tq
+            
+    if(percentage >= 85) { grade = "S" }
+    else if(percentage >= 75) { grade = "A" }
+    else if(percentage >= 65) { grade = "B" }
+    else if(percentage >= 55) { grade = "C" } 
+    else if(percentage >= 50) { grade = "D" }
+    else { grade = "F" }
+    
+    window.localStorage.setItem("trueFalseScore",score.toString())
+    window.localStorage.setItem("totalTrueFalseQuestions",totalQuestions.toString())
+
+
+    window.localStorage.setItem("grade",grade.toString())
+
+    // save certificate data into form
+    document.querySelector("#name-box").value = username
+    document.querySelector("#marks-box").value = totalScore
+    document.querySelector("#grade-box").value = grade
+
+    let today = new Date().toLocaleDateString()
+    document.querySelector("#date-box").value = today.toString()
+    console.log(today)
+
+    let time = new Date().toLocaleTimeString();
+    document.querySelector("#time-box").value = time.toString()
+    console.log(time)
+
+    // submit form automatically
+    document.getElementById("hidden-form").submit();
+
+    // window.open("certificate.html","_self") 
+
+    
+    // document.getElementById("overlay").style.display = "flex"
+    // window.localStorage.setItem("score",score.toString())
+    // displayResult();
+}
+
+
+function generateRandomNumber(min,max) {
+    return Math.floor(Math.random() * (max - min) + min)
+}
+
+
+
+    </script>
+
+    <!-- <script src="timer.js"></script>    -->
+    <!-- <script src="main.js"></script>     -->
+    <!-- <script src="questions.js"></script> -->
+    <script src="truefalse.js"></script>
+    <!-- <script src="result.js"></script> -->
+
+
+    <script>
+
+        // to disable the keyboard
+        function disable() {
+            document.onkeydown = function (e) {
+                return false;
+            }
+        }
+
+
+
+    </script>
+
+        
+</body>
+</html>

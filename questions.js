@@ -10,26 +10,6 @@ const questions = [
     },
 
     {
-        // 2
-        question: "Non-impact based printing device is :",
-        optionA: "Dot matrix printer",
-        optionB: "Scanner",
-        optionC: "Laser Printer",
-        optionD: "None of the above",
-        correctAnswer: "Laser Printer"
-    },
-
-    {
-        // 3
-        question: "To cut text from the document, press the keys :",
-        optionA: "Ctrl and V",
-        optionB: "Ctrl and C",
-        optionC: "Ctrl and A",
-        optionD: "Ctrl and X",
-        correctAnswer: "Ctrl and X"
-    },
-
-    {
         // 4
         question: "__________ maps IP addresses with the domain names of the sites.",
         optionA: "URL",
@@ -41,32 +21,16 @@ const questions = [
 
     {
         // 5
-        question: "A Nibble consists of __________ Bits :",
-        optionA: "2",
-        optionB: "4",
-        optionC: "8",
-        optionD: "16",
-        correctAnswer: "4"
+        
     },
 
     {
         // 6
-        question: "User interact with the operating system through a set of __________.",
-        optionA: "USB Sticks",
-        optionB: "Commands",
-        optionC: "Scanner",
-        optionD: "All of the above",
-        correctAnswer: "Commands"
+        
     },
 
     {
-        // 7
-        question: "Which is the technology used in the evaluation of aptitude test ?",
-        optionA: "OCR",
-        optionB: "OMR",
-        optionC: "MICR",
-        optionD: "MCR",
-        correctAnswer: "OMR"
+        
     },
 
     {
@@ -91,12 +55,6 @@ const questions = [
 
     {
         // 10
-        question: "Full form of ASCII :",
-        optionA: "American Standard Code for Information Interconnection",
-        optionB: "American Situation Code for Information Intercommunication",
-        optionC: "American Standard Code for Information Interchange",
-        optionD: "American Standard Coding for Information Interconnection",
-        correctAnswer: "American Standard Code for Information Interchange"
     },
 
     {
@@ -201,12 +159,7 @@ const questions = [
 
     {
         // 21
-        question: "Numbers in base 16 are called as",
-        optionA: "Octal System",
-        optionB: "Hexadecimal System",
-        optionC: "Decimal System",
-        optionD: "Binary System",
-        correctAnswer: "Hexadecimal System"
+        
     },
 
     {
@@ -221,42 +174,22 @@ const questions = [
 
     {
         // 23
-        question: "Which of the following file extensions indicate file created in Paint ?",
-        optionA: "BMP",
-        optionB: "DOC",
-        optionC: "STK",
-        optionD: "PPT",
-        correctAnswer: "BMP"
+        
     },
 
     {
         // 24
-        question: "Which of the following is an input device ?",
-        optionA: "Screen",
-        optionB: "Speaker",
-        optionC: "Keyboard",
-        optionD: "Printer",
-        correctAnswer: "Keyboard"
+        
     },
 
     {
         // 25
-        question: "The cost of storing a bit is minimum in :",
-        optionA: "Cache",
-        optionB: "RAM",
-        optionC: "Register",
-        optionD: "Magnetic Disc",
-        correctAnswer: "Magnetic Disc"
+        
     },
 
     {
         // 26
-        question: "________ is known as High level language.",
-        optionA: "Windows 7",
-        optionB: "Operating System",
-        optionC: "Java",
-        optionD: "Apple",
-        correctAnswer: "Java"
+        
     },
 
     {
@@ -281,12 +214,7 @@ const questions = [
 
     {
         // 29
-        question: "Airline reservation system is a typical example of :",
-        optionA: "Batch processing",
-        optionB: "Online processing",
-        optionC: "Real time processing",
-        optionD: "None of the above",
-        correctAnswer: "Real time processing"
+        
     },
 
     {
@@ -311,12 +239,7 @@ const questions = [
 
     {
         // 32
-        question: "Which of the following is not an output device ?",
-        optionA: "Keyboard",
-        optionB: "Screen",
-        optionC: "Speakers",
-        optionD: "Printer",
-        correctAnswer: "Keyboard"
+        
     },
 
     {
@@ -391,32 +314,17 @@ const questions = [
 
     {
         // 40
-        question: "Which of the following refers to the fastest, biggest and most expensive computer ?",
-        optionA: "Personal computer",
-        optionB: "Laptops",
-        optionC: "Super Computer",
-        optionD: "Notebook",
-        correctAnswer: "Super Computer"
+        
     },
 
     {
         // 41
-        question: "Which Decimal equivalent of the binary number 11100011is:",
-        optionA: "227",
-        optionB: "226",
-        optionC: "224",
-        optionD: "228",
-        correctAnswer: "227"
+        
     },
 
     {
         // 42
-        question: "Linux is : ",
-        optionA: "A compiler",
-        optionB: "An assembler",
-        optionC: "An operating system",
-        optionD: "An editor",
-        correctAnswer: "An operating system"
+        
     },
 
     {
@@ -441,12 +349,7 @@ const questions = [
 
     {
         // 45
-        question: "Which memory is used to store BIOS on Motherboard.",
-        optionA: "ROM",
-        optionB: "RAM",
-        optionC: "CACHE",
-        optionD: "None of the above",
-        correctAnswer: "ROM"
+        
     },
 
     {
@@ -458,16 +361,7 @@ const questions = [
         optionD: "System Query Language",
         correctAnswer: "Structured Query Language"
     },
-
-    {
-        // 47
-        question: "Which of the following is a communication device ?",
-        optionA: "Printer",
-        optionB: "Monitor",
-        optionC: "Keyboard",
-        optionD: "Modem",
-        correctAnswer: "Modem"
-    },
+        
 
     {
         // 48
@@ -481,32 +375,17 @@ const questions = [
 
     {
         // 49
-        question: "Numbers in base 8 are called as :",
-        optionA: "Octal System",
-        optionB: "Hexadecimal System",
-        optionC: "Decimal System",
-        optionD: "Binary Nnumbering System",
-        correctAnswer: "Octal System"
+        
     },
 
     {
         // 50
-        question: "Convert 10100011 from binary to decimal :",
-        optionA: "121",
-        optionB: "163",
-        optionC: "199",
-        optionD: "212",
-        correctAnswer: "163"
+        
     },
 
     {
         // 51
-        question: "Which characteristic of computer distinguishes it from electronic calculators ?",
-        optionA: "Accuracy",
-        optionB: "Versatility",
-        optionC: "Storage",
-        optionD: "Automatic",
-        correctAnswer: "Storage"
+        
     },
 
     {
@@ -531,12 +410,7 @@ const questions = [
 
     {
         // 54
-        question: "What type of computers are client computers (most of the time) in a clientserver system ?",
-        optionA: "Mainframe",
-        optionB: "Mini-computer",
-        optionC: "Microcomputer",
-        optionD: "PDA",
-        correctAnswer: "Microcomputer"
+        
     },
 
     {
@@ -551,22 +425,12 @@ const questions = [
 
     {
         // 56
-        question: "Which of the following is an impact printer?",
-        optionA: "Laser",
-        optionB: "Ink-jet",
-        optionC: "Dot-matrix",
-        optionD: "None of the options",
-        correctAnswer: "Dot-matrix"
+        
     },
 
     {
         // 57
-        question: "The number of bits used to store a BCD digit is :",
-        optionA: "2",
-        optionB: "4",
-        optionC: "6",
-        optionD: "8",
-        correctAnswer: "4"
+        
     },
 
     {
@@ -581,12 +445,7 @@ const questions = [
 
     {
         // 59
-        question: "The binary number 1110 is equal to the decimal number ________",
-        optionA: "3",
-        optionB: "1",
-        optionC: "7",
-        optionD: "14",
-        correctAnswer: "14"
+        
     },
 
     {
@@ -611,22 +470,12 @@ const questions = [
 
     {
         // 62
-        question: "Which is the character encoding standard that provides unique number to every character ?",
-        optionA: "Unicode",
-        optionB: "ASCII",
-        optionC: "ENIAC",
-        optionD: "IBM",
-        correctAnswer: "Unicode"
+        
     },
 
     {
         // 63
-        question: "Which one is the invalid size of Cache memory ?",
-        optionA: "2048 Kilobytes",
-        optionB: "3072 Kilobytes",
-        optionC: "92162 Kilobytes",
-        optionD: "512 Kilobytes",
-        correctAnswer: "92162 Kilobytes"
+        
     },
 
     {
@@ -641,32 +490,17 @@ const questions = [
 
     {
         // 65
-        question: "Which is the correct Hexa-decimal representation of binary 1010110110011?",
-        optionA: "12663",
-        optionB: "15B3",
-        optionC: "3B51",
-        optionD: "5555",
-        correctAnswer: "15B3"
+        
     },
 
     {
         // 66
-        question: "MBR is an acronym for",
-        optionA: "Most Boot Report",
-        optionB: "Master Byte Record",
-        optionC: "Master Boot Record",
-        optionD: "Most Burn Record",
-        correctAnswer: "Master Boot Record"
+        
     },
 
     {
         // 67
-        question: "Which tasks are performed by operating system in a computer (i) Memory management (ii) Process management (iii) Device management (iv) File management",
-        optionA: "(i),(ii),(iii),(iv)",
-        optionB: "(i),(ii),(iv)",
-        optionC: "(ii),(iii)",
-        optionD: "(i),(iii)",
-        correctAnswer: "(i),(ii),(iii),(iv)"
+        
     },
 
     {
@@ -681,42 +515,22 @@ const questions = [
 
     {
         // 69
-        question: "Which one is not a type of memory ?",
-        optionA: "ROM",
-        optionB: "Cache",
-        optionC: "EEPROM",
-        optionD: "Joy-stick",
-        correctAnswer: "Joy-stick"
+        
     },
 
     {
         // 70
-        question: "Binary equivalent of decimal 53.625 is",
-        optionA: "110101.101",
-        optionB: "111101.001",
-        optionC: "110111.100",
-        optionD: "100101.101",
-        correctAnswer: "110101.101"
+        
     },
 
     {
         // 71
-        question: "FAT stands for",
-        optionA: "File Allocation Table",
-        optionB: "Folder Allocation Table ",
-        optionC: "Folder Allocation Transition",
-        optionD: "File Allocation Transition",
-        correctAnswer: "File Allocation Table"
+        
     },
 
     {
         // 72
-        question: "operation of file or folder is required to move location of file or folder.",
-        optionA: "Copy followed by Paste",
-        optionB: "Cut followed by Paste",
-        optionC: "Move followed by Paste",
-        optionD: "Change location",
-        correctAnswer: "Cut followed by Paste"
+        
     },
 
     {
@@ -731,32 +545,17 @@ const questions = [
 
     {
         // 74
-        question: "Operating System can be installed from following resources",
-        optionA: "Disk",
-        optionB: "Network",
-        optionC: "Remote Installation",
-        optionD: "All of the above",
-        correctAnswer: "All of the above"
+        
     },
 
     {
         // 75
-        question: "Device, which is required for the Internet connection. ",
-        optionA: "Joystick",
-        optionB: "CD Drive",
-        optionC: "Mouse",
-        optionD: "NIC Card",
-        correctAnswer: "NIC Card"
+        
     },
 
     {
         // 76
-        question: "Size of Floppy disks is :",
-        optionA: "5.25 inch",
-        optionB: "2.25 inch",
-        optionC: "7.25 inch",
-        optionD: "All of the above",
-        correctAnswer: "5.25 inch"
+        
     },
 
     {
@@ -771,22 +570,12 @@ const questions = [
 
     {
         // 78
-        question: "____________is a known as high level language.",
-        optionA: "Windows 7",
-        optionB: "Linux",
-        optionC: "Microsoft .NET",
-        optionD: "Apple",
-        correctAnswer: "Microsoft .NET"
+        
     },
 
     {
         // 79
-        question: "Which output device is used for translating information from a computer into pictorial form on paper?",
-        optionA: "Mouse",
-        optionB: "Plotter",
-        optionC: "Touch panel",
-        optionD: "Card Punch",
-        correctAnswer: "Plotter"
+        
     },
 
     {
@@ -801,92 +590,47 @@ const questions = [
 
     {
         // 81
-        question: "An optical input device that interprets pencil marks on paper media is",
-        optionA: "OMR",
-        optionB: "Punch card reader",
-        optionC: "optical scanners",
-        optionD: "Magnetic tape",
-        correctAnswer: "OMR"
+        
     },
 
     {
         // 82
-        question: "Numbers in base 2 are called as :",
-        optionA: "Octal System",
-        optionB: "Hexadecimal System",
-        optionC: "Decimal System",
-        optionD: "Binary Numbering System",
-        correctAnswer: "Binary Numbering System"
+        
     },
 
     {
         // 83
-        question: "In a single byte how many bits will be there?",
-        optionA: "8",
-        optionB: "16",
-        optionC: "4",
-        optionD: "32",
-        correctAnswer: "8"
+        
     },
 
     {
         // 84
-        question: "USB is",
-        optionA: "Unique Serial Bus",
-        optionB: "Universal Serial Bus",
-        optionC: "Union Serial Bus",
-        optionD: "Unknown Serial Bus",
-        correctAnswer: "Universal Serial Bus"
+        
     },
 
     {
         // 85
-        question: "A keyboard is this kind of device :",
-        optionA: "Black",
-        optionB: "Input",
-        optionC: "Output",
-        optionD: "Word processing",
-        correctAnswer: "Input"
+        
     },
 
     {
         // 86
-        question: "The three main components of a digital computer system are:",
-        optionA: "Memory, Input/Output, DMA",
-        optionB: "ALU, CPU, Memory",
-        optionC: "Memory, Input/Output, CPU",
-        optionD: "Control Circuits, ALU, Registers",
-        correctAnswer: "Memory, Input/Output, CPU"
+        
     },
 
     {
         // 87
-        question: "Which one of the following is volatile ?",
-        optionA: "Bubble memory",
-        optionB: "RAM",
-        optionC: "ROM",
-        optionD: "Magnetic Disc",
-        correctAnswer: "RAM"
+        
     },
 
     {
         // 88
-        question: "The resolution of a dot matrix printer is measured in:",
-        optionA: "Megabits",
-        optionB: "Dots per inch",
-        optionC: "Hertz",
-        optionD: "Inches",
-        correctAnswer: "Dots per inch"
+        
     },
 
     {
         // 89
-        question: "Linux open source is an",
-        optionA: "Operating System",
-        optionB: "Office tool",
-        optionC: "Programming Standard",
-        optionD: "Proprietary Operating System",
-        correctAnswer: "Operating System"
+        
     },
 
     {
@@ -901,12 +645,7 @@ const questions = [
 
     {
         // 91
-        question: "The basic architecture of computer was developed by",
-        optionA: "John Von Neumann",
-        optionB: "Charles Babbage",
-        optionC: "Blaise Pascal",
-        optionD: "Gorden Moore",
-        correctAnswer: "John Von Neumann"
+        
     },
 
     {
@@ -921,12 +660,7 @@ const questions = [
 
     {
         // 93
-        question: "Primary Memory is",
-        optionA: "RAM",
-        optionB: "ROM",
-        optionC: "USB Drive",
-        optionD: "Floppy Disk",
-        correctAnswer: "RAM"
+        
     },
 
     {
@@ -941,12 +675,7 @@ const questions = [
 
     {
         // 95
-        question: "Which of the following translates a program written in Assembly language into Machine Code?",
-        optionA: "A compiler",
-        optionB: "An assembler",
-        optionC: "An operating system",
-        optionD: "An editor",
-        correctAnswer: "An assembler"
+        
     },
 
     {
@@ -971,12 +700,7 @@ const questions = [
 
     {
         // 98
-        question: "The main circuit board in a computer is called a :",
-        optionA: "RAM",
-        optionB: "CPU",
-        optionC: "Motherboard",
-        optionD: "All of the above",
-        correctAnswer: "Motherboard"
+        
     },
 
     {
@@ -1003,12 +727,7 @@ const questions = [
 //
     {
         // 101
-        question: "Which of the following statements is correct ?",
-        optionA: "1 KB = 1024 bytes",
-        optionB: "1 MB = 2048 bytes",
-        optionC: "1 MB = 1000 kilobytes",
-        optionD: "1 KB = 1000 bytes",
-        correctAnswer: "1 KB = 1024 bytes"
+        
     },
 
     {
@@ -1183,132 +902,67 @@ const questions = [
 
     {
         // 119
-        question: "What is an operating system?",
-        optionA: "interface between the hardware and application programs",
-        optionB: "collection of programs that manages hardware resources",
-        optionC: "system service provider to the application programs",
-        optionD: "all of the mentioned",
-        correctAnswer: "all of the mentioned"
+        
     },
 
     {
         // 120
-        question: "Which of the following is not an operating system",
-        optionA: "Windows",
-        optionB: "Linux",
-        optionC: "Oracle",
-        optionD: "DOS",
-        correctAnswer: "Oracle"
+        
     },
 
     {
         // 121
-        question: "When were MS windows operating systems proposed?",
-        optionA: "1994",
-        optionB: "1990",
-        optionC: "1992",
-        optionD: "1985",
-        correctAnswer: "1985"
+        
     },
 
     {
         // 122
-        question: " Which of the following is the extension of Notepad?",
-        optionA: ".txt",
-        optionB: ".xls",
-        optionC: ".ppt",
-        optionD: ".bmp",
-        correctAnswer: ".txt"
+        
     },
 
     {
         // 123
-        question: " What else is a command interpreter called :",
-        optionA: "prompt",
-        optionB: "kernel",
-        optionC: "shell",
-        optionD: "command",
-        correctAnswer: "shell"
+        
     },
 
     {
         // 124
-        question: "When you delete a file in your computer, where does it go?",
-        optionA: "Recycle bin",
-        optionB: "Hard disk",
-        optionC: "Taskbar",
-        optionD: "None of these",
-        correctAnswer: "Recycle bin"
+        
     },
 
     {
         // 125
-        question: "Which is the Linux operating system",
-        optionA: "Private operating system",
-        optionB: "Windows operating system",
-        optionC: "Open-source operating system",
-        optionD: "None of these",
-        correctAnswer: "Open-source operating system"
+        
     },
 
     {
         // 126
-        question: "Which of the following is a single-user operating system?",
-        optionA: "Windows",
-        optionB: "MAC",
-        optionC: "Ms-Dos",
-        optionD: "None of these",
-        correctAnswer: "Ms-Dos"
+        
     },
 
     {
         // 127
-        question: "Which of the following is not application software?",
-        optionA: "Windows 7",
-        optionB: "WordPad",
-        optionC: "Photoshop",
-        optionD: "MS-excel",
-        correctAnswer: "Windows 7"
+        
     },
 
     {
         // 128
-        question: "Which of the following operating systems does not support more than one program at a time?",
-        optionA: "Linux",
-        optionB: "Windows",
-        optionC: "MAC",
-        optionD: "DOS",
-        correctAnswer: "DOS"
+        
     },
 
     {
         // 129
-        question: "Which of the following is system software?",
-        optionA: "Operating system",
-        optionB: "Compiler",
-        optionC: "Utilities",
-        optionD: "All of the above",
-        correctAnswer: "All of the above"
+        
     },
 
     {
         // 130
-        question: "The operating system work between",
-        optionA: "User and Computer",
-        optionB: "Network and User",
-        optionC: "One user to another user",
-        optionD: "All of the these",
-        correctAnswer: "User and Computer"
+        
     },
 
     {
         // 131
-        question: "Which of the following programs is loaded first into memory, when starting a computer?",
-        optionA: "Window desktop",
-        optionB: "Network connection program",
-        optionC: "Operating system",
-        optionD: "CMD",
-        correctAnswer: "Operating system"
+        
     },
 
     {
@@ -1323,12 +977,7 @@ const questions = [
 
     {
         // 133
-        question: "Helps in faster disposal of large number of checks in banking sector?",
-        optionA: "OMR",
-        optionB: "OCR",
-        optionC: "Bar Code Reader",
-        optionD: "MICR",
-        correctAnswer: "MICR"
+        
     },
 
     {
@@ -2015,42 +1664,22 @@ const questions = [
 
     {
         // 202
-        question: "Core2Duo is a type of :",
-        optionA: "Primary Cache",
-        optionB: "Magnetic storage",
-        optionC: "Processor",
-        optionD: "Hard disk",
-        correctAnswer: "Processor"
+        
     },
 
     {
         // 203
-        question: "MS Office is a ",
-        optionA: "System software",
-        optionB: "Utility software package",
-        optionC: "Operating system",
-        optionD: "Device driver",
-        correctAnswer: "Utility software package"
+        
     },
 
     {
         // 204
-        question: "Open Office and AbiWorld are",
-        optionA: "System software",
-        optionB: "Operating system",
-        optionC: "Open Source Software (OSS)",
-        optionD: "Device driver",
-        correctAnswer: "Open Source Software (OSS)"
+        
     },
 
     {
         // 205
-        question: "Pendrive is related with : ", 
-        optionA: "Primary cache",
-        optionB: "Hard disk",
-        optionC: "Magnetic storage",
-        optionD: "Processor",
-        correctAnswer: "Hard disk"
+        
     },
 
     {
@@ -2065,32 +1694,17 @@ const questions = [
 
     {
         // 207
-        question: "Compiler is an example of :",
-        optionA: "System software",
-        optionB: "Operating system",
-        optionC: "Utility software",
-        optionD: "Application software",
-        correctAnswer: "System software"
+        
     },
 
     {
         // 208
-        question: "L1 is :",
-        optionA: "Secondary cache",
-        optionB: "Primary Cache",
-        optionC: "Magnetic storage",
-        optionD: "Hard disk",
-        correctAnswer: "Primary Cache"
+        
     },
 
     {
         // 209
-        question: "Key to permanently delete the file without sending it to the recycle bin",
-        optionA: "Shift + del",
-        optionB: "Ctrl + del",
-        optionC: "Alt + del",
-        optionD: "del",
-        correctAnswer: "Shift + del"
+        
     },
 
     {
@@ -2115,63 +1729,33 @@ const questions = [
 
     {
         // 212
-        question: "The most common input devices are :",
-        optionA: "Keyboard and Printer",
-        optionB: "Keyboard and Monitor",
-        optionC: "Mouse and Keyboard",
-        optionD: "Monitor and Mouse",
-        correctAnswer: "Mouse and Keyboard"
+        
     },
 
     {
         // 213
-        question: "Hard disk drives are considered __________ storage.",
-        optionA: "Tape",
-        optionB: "Non-volatile",
-        optionC: "Peripheral Device",
-        optionD: "Primary",
-        correctAnswer: "Non-volatile"
+        
     },
 
     {
         // 214
-        question: "The term ___________ designates equipment that might be added to a computer system to enhance its functionality.",
-        optionA: "Software",
-        optionB: "Peripheral devices",
-        optionC: "Hard disk",
-        optionD: "Memory",
-        correctAnswer: "Peripheral devices"
+        
     },
 
     {
         // 215
-        question: "Which is a painting and drawing device.",
-        optionA: "Mouse",
-        optionB: "Keyboard",
-        optionC: "Webcam",
-        optionD: "Joystick",
-        correctAnswer: "Mouse"
+        
     },
 
     {
         // 216
-        question: "A _________ can make easier to play games",
-        optionA: "Mouse ",
-        optionB: "Keyboard",
-        optionC: "Webcam",
-        optionD: "Joystick",
-        correctAnswer: "Joystick"
+        
     },
 
 
     {
         // 217
-        question: "In windows operating system, the clock is visible on the",
-        optionA: "Task bar",
-        optionB: "Title bar",
-        optionC: "Status bar",
-        optionD: "Side bar",
-        correctAnswer: "Task bar"
+        
     },
 
     {
@@ -2186,26 +1770,301 @@ const questions = [
 
     {
         // 219
-        question: "All the deleted files or folders goes to the ________.",
-        optionA: "Documents",
-        optionB: "Recycle Bin",
-        optionC: "Memory",
-        optionD: "Delete folder",
-        correctAnswer: "Recycle Bin"
+        
     },
 
     {
         // 220
-        question: "To make a window wider, you would move the pointer until it changes to the Horizontal Resize shape and then __________",
-        optionA: "Click",
-        optionB: "Drag",
-        optionC: "Double click",
-        optionD: "Press Ctrl",
-        correctAnswer: "Drag"
+        
     },
 
     {
         // 221
+        question: "Populat RDBMS is",
+        optionA: "NTFS",
+        optionB: "ORACLE",
+        optionC: "Octal",
+        optionD: "Internet",
+        correctAnswer: "ORACLE"
+    },
+
+    {
+        // 222
+        
+    },
+
+    {
+        // 223
+        question: "Set of rules ",
+        optionA: "Softwares",
+        optionB: "Functions",
+        optionC: "Programs",
+        optionD: "Protocols",
+        correctAnswer: "Protocols"
+    },
+
+    {
+        // 224
+        question: "Shortcut to close a document",
+        optionA: "Ctrl + S",
+        optionB: "Alt + F4",
+        optionC: "Ctrl + w",
+        optionD: "Ctrl + F4",
+        correctAnswer: "Ctrl + w"
+    },
+
+    {
+        // 225
+        
+    },
+
+    {
+        // 226
+        
+    },
+
+    {
+        // 227
+        question: "The arranging of data in a logical sequence",
+        optionA: "Sorting",
+        optionB: "Filtering",
+        optionC: "Auto correct",
+        optionD: "Auto complete",
+        correctAnswer: "Sorting"
+    },
+
+    {
+        // 228
+        question: "Readymade formulas of Excel",
+        optionA: "Auto correct",
+        optionB: "Auto right",
+        optionC: "Sorting",
+        optionD: "Functions",
+        correctAnswer: "Functions"
+    },
+
+    {
+        // 229
+        question: "Global system of interconnected computer networks",
+        optionA: "Internet",
+        optionB: "LAN",
+        optionC: "Intranet",
+        optionD: "Protocol",
+        correctAnswer: "Internet"
+    },
+
+    {
+        // 230
+        question: "Facility can automatically rectify common spelling mistakes and often used acronyms etc.",
+        optionA: "Auto complete",
+        optionB: "Auto text",
+        optionC: "Auto right",
+        optionD: "Auto correct",
+        correctAnswer: "Auto correct"
+    },
+
+    {
+        // 231
+        question: "_________ deals with cybercrime and electronic commerce.",
+        optionA: "Cyber crime",
+        optionB: "Mailbox",
+        optionC: "IT Act",
+        optionD: "Link",
+        correctAnswer: "IT Act"
+    },
+
+    {
+        // 232
+        question: "Relational database contains __________",
+        optionA: "Control",
+        optionB: "Hard disk drive",
+        optionC: "Link",
+        optionD: "Tables and Queries",
+        correctAnswer: "Tables and Queries"
+    },
+
+    {
+        // 233
+        question: "The ________ tab is to take you to first page of website.",
+        optionA: "Link",
+        optionB: "Home",
+        optionC: "Control",
+        optionD: "Mailbox",
+        correctAnswer: "Home"
+    },
+
+    {
+        // 234
+        question: "Inventory _________ is concerned with minimizing the total cost of inventory.",
+        optionA: "Control",
+        optionB: "End",
+        optionC: "Autosum",
+        optionD: "Link",
+        correctAnswer: "Control"
+    },
+
+    {
+        // 235
+        question: "________ is used in MS-Excel to total rows and/or columns",
+        optionA: "Autosum",
+        optionB: "Mailbox",
+        optionC: "Link",
+        optionD: "Autocorrect",
+        correctAnswer: "Autosum"
+    },
+
+    {
+        // 236
+        question: "Save as dialog box is open by pressing ______ key",
+        optionA: "F11",
+        optionB: "F10",
+        optionC: "Ctrl + S",
+        optionD: "F12",
+        correctAnswer: "F12"
+    },
+
+    {
+        // 237
+        question: "A clipboard is a temporary storage area used for text which is _______ ",
+        optionA: "Cut/Copied",
+        optionB: "Deleted",
+        optionC: "Hidden",
+        optionD: "Formated",
+        correctAnswer: "Cut/Copied"
+    },
+
+    {
+        // 238
+        question: "________ an area of memory or disk that is assigned to store e-mail messages sent by other users.",
+        optionA: "Inbox",
+        optionB: "Outbox",
+        optionC: "Sent",
+        optionD: "Draft",
+        correctAnswer: "Inbox"
+    },
+
+    {
+        // 239
+        
+    },
+
+    {
+        // 240
+        question: "Ctrl + X",
+        optionA: "Copy",
+        optionB: "Cut",
+        optionC: "Move",
+        optionD: "Delete",
+        correctAnswer: "Cut"
+    },
+
+    {
+        // 241
+        question: "It is a file format to store video file.",
+        optionA: "WMA",
+        optionB: "MP3",
+        optionC: "MP4",
+        optionD: "AAC",
+        correctAnswer: "MP4"
+    },
+
+    {
+        // 242
+        question: "Protocol used for network file transfers in www environment.",
+        optionA: "HTTP",
+        optionB: "LAN",
+        optionC: "WAN",
+        optionD: "SMTP",
+        correctAnswer: "HTTP"
+    },
+
+    {
+        // 243
+        question: "Computer network limited in a building",
+        optionA: "LAN",
+        optionB: "WAN",
+        optionC: "MAN",
+        optionD: "Internet of things",
+        correctAnswer: "LAN"
+    },
+
+    {
+        // 244
+        question: "gmail is",
+        optionA: "Application software",
+        optionB: "Hardware",
+        optionC: "System software",
+        optionD: "E-mail System",
+        correctAnswer: "E-mail System"
+    },
+
+    {
+        // 245
+        question: "Example of web browser",
+        optionA: "Ubuntu",
+        optionB: "Libreoffice",
+        optionC: "Mozilla Firefox",
+        optionD: "Windows Exolorer",
+        correctAnswer: "Mozilla Firefox"
+    },
+
+    {
+        // 246
+        question: "Money can be kept for e-payment in",
+        optionA: "Email System",
+        optionB: "E-wallet",
+        optionC: "Application software",
+        optionD: "LAN",
+        correctAnswer: "E-wallet"
+    },
+
+    {
+        // 247
+        question: "IOT",
+        optionA: "Web of Things",
+        optionB: "Intranet of Things",
+        optionC: "Internet of Things",
+        optionD: "Introduction of Things",
+        correctAnswer: "Internet of Things"
+    },
+
+    {
+        // 248
+        
+    },
+
+    {
+        // 249
+        question: "A set of rules for solving a problem in a given number of steps.",
+        optionA: "Solutions",
+        optionB: "Program",
+        optionC: "Algorithm",
+        optionD: "Software",
+        correctAnswer: "Algorithm"
+    },
+
+    {
+        // 250
+        
+    },
+
+    {
+        // 251
+        
+    },
+
+    {
+        // 252
+        question: "It is used to create Curriculum Vitae (CV).",
+        optionA: "Word-processing",
+        optionB: "Speadsheet",
+        optionC: "Presentation",
+        optionD: "Database",
+        correctAnswer: "Word-processing"
+    },
+
+    {
+        // 253
         question: "",
         optionA: "",
         optionB: "",
@@ -2232,6 +2091,437 @@ const questions = [
         correctAnswer: ""
     },
 
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
+
+    {
+        question: "",
+        optionA: "",
+        optionB: "",
+        optionC: "",
+        optionD: "",
+        correctAnswer: ""
+    },
     {
         question: "",
         optionA: "",

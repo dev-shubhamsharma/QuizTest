@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment | OIPL</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 15px;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .flex-container {
+            padding: 20px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 1.5rem;
+            background-color: whitesmoke;
+            min-height: 100vh;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            /* border: 1px solid #aaa; */
+            padding: 10px 20px;
+            column-gap: 2rem;
+            border-radius: 10px;
+            background-color: #fff;
+            min-width: 100%;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+        }
+
+        .col-2 {
+            min-width: 300px;
+            /* border: 1px solid red; */
+        }
+
+        .start-btn {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(to left,#1488CC,#2B32B2); 
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .img-wrapper img{
+            width: 50px;
+            min-height: 50px;
+        }
+
+        @media(max-width: 850px) {
+
+            html {
+                font-size: 20px;
+            }
+
+            .flex-container {
+                padding: 20px;
+            }
+
+
+            .card {
+                flex-direction: column;
+                text-align: center;
+                /* justify-content: space-between; */
+                padding: 20px;
+                row-gap: 0.5rem;
+            }
+
+            .start-btn {
+                display: block;
+                padding: 10px 30px;
+                margin-top: 1rem;
+            }
+
+
+        }
+
+    </style>
+
+</head>
+<body onload="createCards()">
+
+    <!-- <div class="flex-container">
+
+        <div class="card col-1">
+            <div class="img-wrapper">
+                <img src="images/python.png" alt="icon-image">
+            </div>
+            <div class="title col-2">
+                <h3>Computer fundamental MCQ</h3>
+            </div>
+            <div class="col3">
+                <p class="questions">Questions : 20</p>
+            </div>
+            <div class="col-4">
+                <p class="time">Time : 10 Min</p>
+            </div>
+            <div class="col-5">
+                <a href="#" class="start-btn">Start Test</a>
+            </div>
+            
+        </div>
+
+
+        <div class="card col-1">
+            <div class="img-wrapper">
+                <img src="images/pic1.jpg" alt="icon-image">
+            </div>
+            <div class="title col-2">
+                <h3>Operating System MCQ</h3>
+            </div>
+            <div class="col3">
+                <p class="questions">Questions : 20</p>
+            </div>
+            <div class="col-4">
+                <p class="time">Time : 10 Min</p>
+            </div>
+            <div class="col-5">
+                <a href="#" class="start-btn">Start Test</a>
+            </div>
+            
+        </div>
+
+
+        <div class="card col-1">
+            <div class="img-wrapper">
+                <img src="images/tally.png" alt="icon-image">
+            </div>
+            <div class="title col-2">
+                <h3>Microsoft office Word MCQ</h3>
+            </div>
+            <div class="col3">
+                <p class="questions">Questions : 20</p>
+            </div>
+            <div class="col-4">
+                <p class="time">Time : 10 Min</p>
+            </div>
+            <div class="col-5">
+                <a href="#" class="start-btn">Start Test</a>
+            </div>
+            
+        </div>
+
+        <div class="card col-1">
+            <div class="img-wrapper">
+                <img src="images/python.png" alt="icon-image">
+            </div>
+            <div class="title col-2">
+                <h3>Microsoft office Excel MCQ</h3>
+            </div>
+            <div class="col3">
+                <p class="questions">Questions : 20</p>
+            </div>
+            <div class="col-4">
+                <p class="time">Time : 10 Min</p>
+            </div>
+            <div class="col-5">
+                <a href="#" class="start-btn">Start Test</a>
+            </div>
+            
+        </div>
+
+        <div class="card col-1">
+            <div class="img-wrapper">
+                <img src="images/python.png" alt="icon-image">
+            </div>
+            <div class="title col-2">
+                <h3>Microsoft office Powerpoint MCQ</h3>
+            </div>
+            <div class="col3">
+                <p class="questions">Questions : 20</p>
+            </div>
+            <div class="col-4">
+                <p class="time">Time : 10 Min</p>
+            </div>
+            <div class="col-5">
+                <a href="#" class="start-btn">Start Test</a>
+            </div>
+            
+        </div>
+
+    </div> -->
+
+
+    <script src="testnames.js"></script>
+    <script>
+        
+        function createCards() {
+
+            let flexContainer = document.createElement("div")
+            flexContainer.classList.add("flex-container")
+
+            for (let index = 0; index < tests.length; index++) {
+
+
+                
+
+                let card = document.createElement("div")
+                card.classList.add("card")
+                // card.classList.add("col-1")
+
+                let col1 = document.createElement("div")
+                col1.classList.add("img-wrapper")
+                let img = document.createElement("img")
+                img.src = tests[index].imgUrl.toString()
+                col1.append(img)
+
+                let col2 = document.createElement("div")
+                col2.classList.add("title")
+                col2.classList.add("col-2")
+                let title = document.createElement("h3")
+                title.innerHTML = tests[index].name.toString()
+                col2.append(title)
+
+                let col3 = document.createElement("div")
+                col3.classList.add("col-3")
+                let ques = document.createElement("p")
+                ques.classList.add("questions")
+                ques.innerHTML= "Questions : "+tests[index].totalQuestions
+                col3.append(ques)
+
+                let col4 = document.createElement("div")
+                col4.classList.add("col-4")
+                let timeText = document.createElement("p")
+                timeText.classList.add("time")
+                timeText.innerHTML= "Time : "+tests[index].timeInMinutes+" Min"
+                col4.append(timeText)
+
+            
+                let col5 = document.createElement("div")
+                col5.classList.add("col-5")
+                let anchor = document.createElement("a")
+                anchor.classList.add("start-btn")
+                anchor.innerHTML= "Start Test"
+                anchor.id = tests[index].id
+                // anchor.setAttribute("onclick","takeAction()")
+                anchor.href = "signin.html?testname="+tests[index].id
+
+                col5.append(anchor)
+
+
+                card.append(col1)
+                card.append(col2)
+                card.append(col3)
+                card.append(col4)
+                card.append(col5)
+
+                flexContainer.append(card)
+                document.body.append(flexContainer)
+
+
+            }
+
+            
+        }
+
+
+        // function takeAction() {
+        //     console.log(this.id)
+        //     // window.open("signin.html?testname="+this.id,"_self")
+        // }
+
+    </script>
+</body>
+</html>

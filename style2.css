@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.form {
+    background: rgba(0,0,0,0.7);
+    min-width: 400px;
+    padding: 30px 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.form input {
+    border: none;
+    border-radius: 3px;
+}
+
+#msg {
+    text-align: center;
+    color: red;
+    display: none;
+}
+
+
+/* preloader */
+
+
+.preloader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background: linear-gradient(to right, #0575E6, #00F260); 
+    z-index: 9;
+    
+}
+
+.circle {
+    width: 80px;
+    height: 80px;
+    border: 4px solid #333;
+    border-top-color:#1488CC;
+    border-radius: 50%;
+    animation: animate 0.5s linear infinite forwards;
+}
+
+@keyframes animate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.preloader .text {
+    margin-top: 20px;
+}
+
+
+
+
+@media(max-width:700px) {
+
+
+
+    main {
+        height: 100vh;
+        max-width: 100vw;
+        padding: 0;
+    }
+
+    main h2 {
+        font-size: 40px;
+    }
+
+    main .form {
+        padding: 30px 20px;
+    }
+
+
+    #sign-in-btn {
+        padding: 10px 20px;
+    }
+
+
+}
+
+@media(max-width:450px) {
+    .form {
+        min-width: 100%;
+    }
+}

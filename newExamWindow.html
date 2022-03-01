@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam | OIPL</title>
+
+    <!--    css file link     -->
+    <link rel="stylesheet" href="examwindow.css">
+
+</head>
+<body onload="loadQuestionBtns()" class="unselectable" onmousedown="return false" oncontextmenu="return false">
+    <header>
+        <img id="logo" src="images/logo.png" alt="oipl logo">
+        <h1 id="title">Online Examination System</h1>
+        <button class="btn">Submit</button>
+
+        
+    </header>
+
+    <section id="top-ribbon">
+
+        <label for="mcq-radio">
+            <input type="radio" name="test" id="mcq-radio">
+            <div id="mcq-btn">Multiple choice</div>
+        </label>
+
+        <label for="truefalse-radio">
+            <input type="radio" name="test" id="truefalse-radio">
+            <div>True False</div>
+        </label>
+    </section>
+
+    <main>
+        <section id="left-section">
+            <div class="question-container">
+                <p class="en">This is the question</p>
+                <p class="hi">यह हिन्दी का प्रश्न है।</p>
+            </div>
+
+            <label for="radio-btn1">
+                <input type="radio" value="A" name="question" class="radio-btn" id="radio-btn1" onchange="clearMsg()">
+                <div class="option-container" id="option1">
+                    <p class="en">This is option A</p>
+                    <p class="hi">यह हिन्दी का पहला विकल्प है।</p>
+                </div>
+            </label>
+
+            <label for="radio-btn2">
+                <input type="radio" value="B" name="question" class="radio-btn" id="radio-btn2" onchange="clearMsg()">
+                <div class="option-container" id="option2">
+                    <p class="en">This is option B</p>
+                    <p class="hi">यह हिन्दी का दूसरा विकल्प है।</p>
+                </div>
+            </label>
+
+            <label for="radio-btn3">
+                <input type="radio" value="C" name="question" class="radio-btn" id="radio-btn3" onchange="clearMsg()">
+                <div class="option-container" id="option3">
+                    <p class="en">This is option C</p>
+                    <p class="hi">यह हिन्दी का तीसरा विकल्प है।</p>
+                </div>
+            </label>
+
+            <label for="radio-btn4">
+                <input type="radio" value="D" name="question" class="radio-btn" id="radio-btn4" onchange="clearMsg()">
+                <div class="option-container" id="option4">
+                    <p class="en">This is option D</p>
+                    <p class="hi">यह हिन्दी का चौथा विकल्प है।</p>
+                </div>
+            </label>
+
+            <div class="btn-container">
+                <button id="prev-btn" class="btn" onclick="goToPrev()">Prev</button>
+                <p id="msg">Please select an option</p>
+                <!-- <button id="clear-btn" class="btn" onclick="alert('clear clicked')">Clear Answer</button> -->
+                <button id="next-btn" class="btn" onclick="saveAnswer()">Save & Next</button>
+            </div>
+
+        </section>
+
+        <section id="right-section">
+            <div class="container">
+                <h4>Button Indicators</h4>
+                <p class="instruction">Not Answered <button class="question-btn">1</button></p>
+                <p class="instruction">Current Question <button class="question-btn current">1</button></p>
+                <p class="instruction">Answered <button class="question-btn answered">1</button></p>
+                
+            </div>
+            <!-- <hr> -->
+            <h4 style="margin: 25px 0 15px 0;">Questions List View</h4>
+            <div class="grid-container">
+                
+                <!-- <button id="btn0" class="question-btn">
+                    <span class="btn-text">1</span>
+                    <span class="ques-index">1</span>
+                    <span class="ans-option">A</span>
+                </button> -->
+
+            </div>
+            
+        </section>
+    </main>
+
+    <script src="fundamental.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

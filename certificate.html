@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate | OIPL</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-size: 1rem;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            padding: 20px;
+            width: 800px;
+            border: 10px solid #1488CC;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #student-name {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        #main-logo {
+            width: 100px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            
+            color: #1488CC;
+            margin: 20px 0;
+        }
+
+        p {
+            line-height: 30px;
+        }
+
+        img {
+            width: 180px;
+            margin-top: 40px;
+        }
+
+        .note {
+            color: grey;
+            margin: 20px 0;
+        }
+
+        #achieved-score,#achieved-grade {
+            color: green;
+            font-weight: bold;
+        }
+
+        #hidden-form {
+            display: none;
+        }
+        
+
+    </style>
+
+</head>
+<body onload="loadCertificateData()">
+    <div class="container">
+        <img id="main-logo" src="images/logo.png" alt="oipl-logo">
+        <h2>Certificate of Appreciation</h2>
+        <p>This certificate is awarded to</p>
+        <p id="student-name">
+            <!-- Shubham Sharma -->
+        </p>
+        <p>for participating in Online Test. He&nbsp;has&nbsp;correctly&nbsp;answered<br>
+            Total <span id="achieved-score">
+                <!-- 55 -->
+            </span> / <span id="total-questions">
+                <!-- 60 -->
+            </span> 
+            
+            Questions and achieved the Grade <span id="achieved-grade">.
+        <!-- A -->
+    </span>
+        </p>
+        <img src="images/signature.png" alt="signature image">
+        <p class="note"></p>
+
+
+
+        <!-- ************   Hidden form   ***************** -->
+
+        <!-- <form id="hidden-form" action="https://api.sheetmonkey.io/form/2dRujg2cPqh2hGvARBYX7i" method="post" autocomplete="off">
+            <input id="name-box" name="name" type="text" placeholder="Enter name" required>
+            <input id="marks-box" name="marks" type="number" placeholder="marks" required>
+            <input id="grade-box" name="grade" type="text" placeholder="grade" required>
+            <input id="date-box" name="date" type="text" placeholder="date" required>
+            <input id="time-box" name="time" type="text" placeholder="time" required>
+            <button id="send-btn" type="submit">Send</button>
+        </form> -->
+        
+
+    </div>
+
+
+    <script>
+        function loadCertificateData() {
+            // values placed in variables
+            let username = window.localStorage.getItem("username")
+            let mcqscore = parseInt(window.localStorage.getItem("mcqScore"))
+            let mcqtq = parseInt(window.localStorage.getItem("totalMcqQuestions"))
+
+            // let tfscore = parseInt(window.localStorage.getItem("trueFalseScore"))
+            // let tftq = parseInt(window.localStorage.getItem("totalTrueFalseQuestions"))
+
+
+            // let score = mcqscore + tfscore
+            // let tq = mcqtq +  tftq
+
+            let grade = ""
+            let percentage = mcqscore*100/mcqtq
+            
+            if(percentage >= 85) { grade = "S" }
+            else if(percentage >= 75) { grade = "A" }
+            else if(percentage >= 65) { grade = "B" }
+            else if(percentage >= 55) { grade = "C" } 
+            else if(percentage >= 50) { grade = "D" }
+            else { grade = "F" }
+
+            // set in certificate
+            document.getElementById("student-name").innerHTML = username
+            document.getElementById("achieved-score").innerHTML = mcqscore
+            document.getElementById("total-questions").innerHTML = mcqtq
+            document.getElementById("achieved-grade").innerHTML = grade
+
+            // // save certificate data into form
+            // document.querySelector("#name-box").value = username
+            // document.querySelector("#marks-box").value = score
+            // document.querySelector("#grade-box").value = grade
+
+            // let today = new Date().toLocaleDateString()
+            // document.querySelector("#date-box").value = today.toString()
+            // console.log(today)
+
+            // let time = new Date().toLocaleTimeString();
+            // document.querySelector("#time-box").value = time.toString()
+            // console.log(time)
+            
+
+
+
+
+            if(grade == "F") {
+                document.querySelector(".note").innerHTML = "Read books and Try to do better, next time!"
+                document.querySelector(".note").style.color = "red"
+            }
+            else if(grade == "D") {
+                document.querySelector(".note").innerHTML = "You need to practice and learn, Try again!"
+                document.querySelector(".note").style.color = "green"
+            }
+            else if(grade == "C") {
+                document.querySelector(".note").innerHTML = "You can jump long, practice makes perfect!"
+                document.querySelector(".note").style.color = "green"
+            }
+            else if(grade == "B") {
+                document.querySelector(".note").innerHTML = "Good, You are a genius!"
+                document.querySelector(".note").style.color = "green"
+            }
+            else if(grade == "A") {
+                document.querySelector(".note").innerHTML = "Excellent, You can go to the moon!"
+                document.querySelector(".note").style.color = "green"
+            }
+            else {
+                document.querySelector(".note").innerHTML = "Perfect, You deep dive into computer world!"
+                document.querySelector(".note").style.color = "green"
+            }
+
+            
+            // submit form automatically
+            // document.getElementById("hidden-form").submit();
+            // alert("Your result is recorded in database!")
+            
+            
+
+
+
+            // code to send data to whatsapp
+
+            // var url = "https://wa.me/919140309348?text="+username+"%0a"+" has achieved the grade "+grade+"%0a"+" and solved correct answers "+score+"%0a"+" in "+sm+"m : "+ss+"s.";
+            // window.open(url,"_blank").focus();
+
+
+            // remove the username from local storage
+            window.localStorage.removeItem("username")
+            
+            // window.onbeforeunload = function(){
+            // return 'Are you sure you want to leave?';
+
+        };
+            
+        
+
+    
+
+    </script>
+
+
+</body>
+</html>

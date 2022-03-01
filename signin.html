@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Sign-in | OIPL</title>
+
+    <!-- google font cdn link -->
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+
+    <!-- css style link -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style2.css">
+
+    <!-- <style>
+        .form {
+            background: rgba(0,0,0,0.7);
+            max-width: 100%;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 10px;
+        }
+
+        .form .input-container {
+            width: 100%;
+            display: flex;
+            /* border: 1px solid white; */
+            flex-direction: column;
+            align-items: flex-start;
+            color: #fff;
+        }
+
+        .input-container input,button {
+            width: 100%;
+        }
+        
+        .preloader {
+            display: none;
+        }
+
+        main {
+            height: 100vh;
+        }
+    </style> -->
+
+</head>
+<body>
+    <header>
+        <a href="index.html"><h1 id="logo">OIPL</h1></a>
+        <label for="menu-check">
+            <input type="checkbox" name="menu" id="menu-check">
+            <div class="menu-btn">
+                <div class="top line"></div>
+                <div class="middle line"></div>
+                <div class="bottom line"></div>
+            </div>
+
+            <ul id="nav">
+                <li><a href="index.html" target="" class="links">Home</a></li>
+                <li><a href="index.html#courses" target="" class="links">Courses</a></li>
+                <li><a href="assesment.html" target="_self" class="links">Assessment</a></li>
+                <!-- <li><a href="signin.html" target="" class="links">Sign in</a></li> -->
+                <li><a href="index.html#contact-form" target="" class="links">Contact</a></li>
+            </ul>
+
+        </label>
+    </header>   
+
+    <main>
+        <h2 class="middle-heading">Student Sign-in</h2>
+        <div class="form">
+            <div class="input-container">   
+                <label for="username">Username</label>
+                <input type="text" id="username" onclick="clearLoginMsg()" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" onclick="clearLoginMsg()" required>
+            </div>
+            <div class="input-container">
+                <button id="sign-in-btn" onclick="validateUser()">Start Exam</button>
+            </div>
+            <p id="msg">User id or Password is incorrect</p>
+        </div>
+    </main>
+
+    <div class="preloader">
+        <div class="circle"></div>
+        <p class="text">Please wait...<br> Connecting to exam server...</p>
+    </div>
+
+
+    <script src="signin.js"></script>
+    <script src="students.js"></script>
+
+    
+</body>
+</html>
