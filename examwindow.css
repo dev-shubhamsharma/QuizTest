@@ -19,7 +19,10 @@
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* overflow: hidden; */
 }
+
+
 
 header,.left,.right {
     display: flex;
@@ -37,34 +40,51 @@ header {
     height: 40px;
 }
 
-.timer {
-    color: red;
-    font-weight: bold;
-}
-
 #title {
     font-weight: 400;
     color: #777;
 }
 
-#top-ribbon, #top-ribbon label {
+/* top ribbon */
+
+#top-ribbon {
     background-color: rgb(66, 63, 63);
     display: flex;
+    align-items: center;
     color: #eee;
+    padding: 0 30px;
 }
 
 #top-ribbon input[type="radio"] {
     display: none;
 }
 
-#top-ribbon label {
-    margin: 8px 30px;
+
+
+#mcq-btn, #truefalse-btn {
+    padding: 10px 30px;
 }
 
-/* #mcq-radio:checked ~ #mcq-btn {
+#mcq-radio:checked ~ #mcq-btn {
     background-color: rgb(37, 111, 196) !important;
-    border: 1px solid red;
-} */
+    /* border: 1px solid red;  */
+}
+
+#truefalse-radio:checked ~ #truefalse-btn {
+    background-color: rgb(37, 111, 196) !important;
+    /* border: 1px solid red;  */
+}
+
+
+.timer {
+    /* background-color: crimson; */
+    padding: 8px 30px;
+    border-radius: 15px;
+    /* justify-self:; */
+    margin-left: auto;
+    color: rgb(224, 224, 19);
+    font-size: large;
+}
 
 
 /* main section */
@@ -211,6 +231,9 @@ main {
     display: none;
 }
 
+
+/* for right side button instructions */
+
 .instruction {
     margin: 10px 0;
     border: 1px solid #aaa;
@@ -222,3 +245,93 @@ main {
     padding: 4px 10px;
     margin-left: 20px;
 }
+
+
+/* ****************************************** */
+
+
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(222,222,222,0.9);
+    position: absolute;
+    top: 0;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: large;
+    line-height: 2rem;
+    display: none;
+}
+
+.progressbar {
+    border: 1px solid #777;
+    width: 250px;
+    height: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-content {
+    background-color: var(--selected-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    margin-left: -100%;
+    /* animation: animate;
+    animation-duration: 5000ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: normal; */
+
+    /* animation: animate 10000ms ease-in forwards normal; */
+}   
+
+/* @keyframes animate {
+    0% {
+        margin-left: -100%;
+    }
+
+    100% {
+        margin-left: 0%;
+    }
+} */
+
+/* /************************************************* */
+
+/* result section */
+
+
+#result-section {
+    display: none;
+    flex-direction: column;
+    align-items: baseline;
+    position:absolute;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 40px;
+}
+
+.flex-items {
+    border: 1px solid #ddd;
+    padding: 10px 30px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+

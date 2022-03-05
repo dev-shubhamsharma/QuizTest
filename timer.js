@@ -1,26 +1,26 @@
 
-let url = window.location.search.toString()
-let i = url.indexOf("=")
-console.log(url.substring(i+1))
-testId = url.substring(i+1)
-for(let index=0; index<tests.length; index++) {
-    if(testId == tests[index].id) {
-        var totalTiming = Number.parseInt(tests[index].timeInMinutes)
-    }
+// let url = window.location.search.toString()
+// let i = url.indexOf("=")
+// console.log(url.substring(i+1))
+// testId = url.substring(i+1)
+// for(let index=0; index<tests.length; index++) {
+//     if(testId == tests[index].id) {
+//         var totalTiming = Number.parseInt(tests[index].timeInMinutes)
+//     }
     
-}
+// }
 
 // time in minutes
 
-
+var totalTiming = 1
 
 
 var secondsCounter = 0
 
 function startTimer() {
 
-    
-    disable()
+    // to disable the keyboard
+    // disable()
 
     var startMinutes = totalTiming
     var startSeconds = 60  // also change on update time 
@@ -28,20 +28,21 @@ function startTimer() {
 
     var minutes = startMinutes
     var seconds = startSeconds
-    
+
+    document.getElementById("minutes").innerHTML = minutes
     minutes-=1
     document.getElementById("minutes").innerHTML = minutes
     // document.getElementById("seconds").innerHTML = seconds - 1
 
-    loadNext(0)
-    document.getElementById("total-question").innerHTML = totalQuestions.toString()
+    // loadNext(0)
+    // document.getElementById("total-question").innerHTML = totalQuestions.toString()
 
     let interval = setInterval(() => {
 
         
         if((minutes == 0 && seconds == 0)) {
 
-            alert("Redirecting to Next section...")
+            // alert("Redirecting to Next section...")
             clearInterval(interval)
             // alert("timer ends")
             submitExam("TimeEnd")

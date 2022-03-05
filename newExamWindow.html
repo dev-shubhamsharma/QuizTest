@@ -14,7 +14,7 @@
     <header>
         <img id="logo" src="images/logo.png" alt="oipl logo">
         <h1 id="title">Online Examination System</h1>
-        <button class="btn">Submit</button>
+        <button class="btn" id="submit-btn" onclick="submitExam('userSubmitted')">Submit</button>
 
         
     </header>
@@ -22,14 +22,20 @@
     <section id="top-ribbon">
 
         <label for="mcq-radio">
-            <input type="radio" name="test" id="mcq-radio">
+            <input type="radio" name="test" id="mcq-radio" checked="true" disabled="true">
             <div id="mcq-btn">Multiple choice</div>
         </label>
 
         <label for="truefalse-radio">
-            <input type="radio" name="test" id="truefalse-radio">
-            <div>True False</div>
+            <input type="radio" name="test" id="truefalse-radio" disabled="true">
+            <div id="truefalse-btn">True False</div>
         </label>
+
+        <div class="timer">
+            <span>Times left : </span>
+            <span id="minutes">00</span> : 
+            <span id="seconds">00</span>
+        </div>
     </section>
 
     <main>
@@ -103,6 +109,27 @@
         </section>
     </main>
 
+
+    <section id="overlay">
+        <p id="progress-count">22%</p>
+        <div class="progressbar">
+            <div class="progress-content"></div>
+        </div>
+        <p>Please wait....</p>
+        <p>While we are calculating your result</p>
+    </section>
+
+    <section id="result-section">
+        <!-- <div class="flex-items">
+            <div class="question">This is question</div>
+            <div class="option">this is option 1</div>
+            <div class="option">this is option 1</div>
+            <div class="option">this is option 1</div>
+            <div class="option">this is option 1</div>
+        </div>         -->
+    </section>
+
+    <!-- <script src="timer.js"></script> -->
     <script src="fundamental.js"></script>
     <script src="script.js"></script>
 </body>

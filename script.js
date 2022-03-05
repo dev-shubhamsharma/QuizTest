@@ -6,11 +6,12 @@ var totalQuestionAddedInList = 10
 var currentBtnIdNo = 0
 
 var prevBtnId = ""
+var indexList = []
 
 
 function loadQuestionBtns() {
 
-    let indexList = []
+    
     for(let i=0; i<totalQuestionsForTest; i++) {
 
         let index = generateRandomNumber(0,totalQuestionAddedInList)
@@ -48,8 +49,12 @@ function loadQuestionBtns() {
 
     }
 
+    // before showQuestion and after loading question buttons
+    // startTimer()
+
     // call first question clicked event to load first question
     showQuestion("btn"+currentBtnIdNo)
+
 
 }
 
@@ -70,9 +75,12 @@ function showQuestion(clickedId) {
 
     // console.log(clickedId.toString())
     // to change color current clicked btn and previous btn color
-    document.querySelector("#"+clickedId).classList.add("current")
+    // console.log(document.querySelector("#"+clickedId).classList.contains("current"))
+    if(document.querySelector("#"+clickedId).classList.contains("current") == false)
+        document.querySelector("#"+clickedId).classList.add("current")
+    
     // console.log(prevBtnId)
-    if(prevBtnId != "")
+    if(prevBtnId != "" && prevBtnId !== clickedId)
     document.querySelector("#"+prevBtnId).classList.remove("current")
     
     clearMsg()
@@ -203,3 +211,72 @@ function goToPrev() {
 }
 
 
+
+
+function submitExam(str) {
+    if(str == "TimeEnd") {
+        alert("Exam timer has ended\nWe are submitting your exam!")
+        // submit the exam
+        calculateAndShowResult()
+    }
+    else if(str == "userSubmitted") {
+        let result = confirm("Are you sure about submitting the exam?");
+        if(result == true) {
+            // submit the exam
+            calculateAndShowResult()
+        }
+    }
+        
+}
+
+
+
+function calculateAndShowResult() {
+    document.querySelector("#overlay").style.display = "flex"
+    let no = 100, count = 0
+    let interval = setInterval(function() {
+        document.querySelector(".progress-content").style.marginLeft = "-"+no+"%"
+        document.querySelector("#progress-count").innerHTML = count+"%"
+        no--
+        count++
+        // console.log(no)
+        if(no == -1) {
+            clearInterval(interval)
+            // show the result section
+            showResult()
+            
+        }
+    },100);
+    
+}
+
+
+function showResult() {
+
+    // hide the overlay
+    document.querySelector("#overlay").style.display = "none"
+    
+
+    let resultSection = document.querySelector("#result-section")
+    console.log("in result section")
+
+    
+
+
+    // btn0 is the id of first question btn
+    for(let i=0; i<indexList.length; i++) {
+
+        let el = document.createElement("div")
+        el.classList.add("flex-items")
+        // find index from questionbtn
+        let index = document.querySelector("#btn"+i+" .ques-index").innerHTML 
+
+        el.innerHTML = '<div class="question">'+i+") "+questions[index][0].question+'</div> <div class="option">'+questions[index][0].optionA+'</div> <div class="option">'+questions[index][0].optionB+'</div> <div class="option">'+questions[index][0].optionC+'</div>  <div class="option">'+questions[index][0].optionD+'</div>'
+
+        resultSection.append(el)
+        console.log(i+"items added")
+
+    }
+
+    document.querySelector("#result-section").style.display = "flex"
+}
