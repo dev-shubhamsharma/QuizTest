@@ -172,10 +172,20 @@ function saveAnswer() {
 
         for(let i = 0; i<radioBtns.length; i++) {
             if(radioBtns[i].checked == true) {
+                
+                let selectedAnswer = radioBtns[i].value.toString()
+                // console.log("selected answer "+ selectedAnswer)
+
+                // let quesIndex = document.querySelector("#btn"+currentBtnIdNo+" .ques-index").innerHTML
+
                 document.querySelector("#btn"+currentBtnIdNo+" .ans-option").innerHTML = radioBtns[i].value.toString()
 
                 document.querySelector("#btn"+currentBtnIdNo).classList.add("answered")
+
+                
             }
+
+
         }
 
         if(currentBtnIdNo != totalQuestionsForTest - 1) {
@@ -241,42 +251,143 @@ function calculateAndShowResult() {
         count++
         // console.log(no)
         if(no == -1) {
+            // stop loading animation and show result
             clearInterval(interval)
             // show the result section
             showResult()
             
         }
-    },100);
+    },10);
     
 }
 
 
 function showResult() {
-
-    // hide the overlay
-    document.querySelector("#overlay").style.display = "none"
     
-
     let resultSection = document.querySelector("#result-section")
-    console.log("in result section")
 
-    
+    for(let index = 0; index < indexList.length; index++) {
+        
+        // ************** ADD TO THE RESULT SECTION *****************
 
+        let selectedOption = document.querySelector("#btn"+index+" .ans-option").innerHTML
 
-    // btn0 is the id of first question btn
-    for(let i=0; i<indexList.length; i++) {
+        console.log(selectedOption)
+        if(selectedOption == "A" || selectedOption == "B" || selectedOption == "C" || selectedOption == "D") {
 
-        let el = document.createElement("div")
-        el.classList.add("flex-items")
-        // find index from questionbtn
-        let index = document.querySelector("#btn"+i+" .ques-index").innerHTML 
+            let questionIndex = document.querySelector("#btn"+index+" .ques-index").innerHTML
 
-        el.innerHTML = '<div class="question">'+i+") "+questions[index][0].question+'</div> <div class="option">'+questions[index][0].optionA+'</div> <div class="option">'+questions[index][0].optionB+'</div> <div class="option">'+questions[index][0].optionC+'</div>  <div class="option">'+questions[index][0].optionD+'</div>'
+            let flexItems = document.createElement("div")
+            flexItems.classList.add("flex-items")
 
-        resultSection.append(el)
-        console.log(i+"items added")
+            flexItems.innerHTML = `
+                <div class="question" style="font-weight:bold;">${index+1}. ${questions[questionIndex][0].question}</div>
+                <div class="option" id="option-${index}-a">A. ${questions[questionIndex][0].optionA}</div>
+                <div class="option" id="option-${index}-b">B. ${questions[questionIndex][0].optionB}</div>
+                <div class="option" id="option-${index}-c">C. ${questions[questionIndex][0].optionC}</div>
+                <div class="option" id="option-${index}-d">D. ${questions[questionIndex][0].optionD}</div>
+                `
+            resultSection.append(flexItems)
+
+            console.log(questionIndex+"    "+selectedOption)
+            // for correct answers
+            if(questions[questionIndex][0].correctAnswer === questions[questionIndex][0]["option"+selectedOption]) {
+                document.querySelector("#option-"+index+"-"+selectedOption.toLowerCase()).style.cssText = `color:green; font-weight:bold;`;
+
+            }
+            else {
+                document.querySelector("#option-"+index+"-"+selectedOption.toLowerCase()).style.cssText = `color:red; font-weight:bold;`;
+            }
+        }
+        
 
     }
 
-    document.querySelector("#result-section").style.display = "flex"
+
+    resultSection.style.display = "flex"
+
+    // hide the overlay
+    document.querySelector("#overlay").style.display = "none"
 }
+
+
+// function showResult() {
+
+//     // hide the overlay
+//     document.querySelector("#overlay").style.display = "none"
+    
+
+//     let resultSection = document.querySelector("#result-section")
+//     console.log("in result section")
+
+    
+
+
+//     // btn0 is the id of first question btn
+//     for(let i=0; i<indexList.length; i++) {
+
+//         let flexItems = document.createElement("div")
+//         flexItems.classList.add("flex-items")
+//         // find index from questionbtn
+//         let index = document.querySelector("#btn"+i+" .ques-index").innerHTML 
+//         let selectedAnswer = document.querySelector("#btn"+i+" .ans-option").innerHTML 
+       
+//         let ques = document.createElement("p")
+//         ques.style.cssText = `padding: 10px 0;`
+//         ques.innerHTML = questions[index][0].question.toString();
+
+//         let option = document.createElement("p")
+//         option.style.cssText = `padding: 10px 0; margin: 5px 0;`
+
+
+
+
+
+//         // el.innerHTML = '<div class="question" style="font-weight:bold; padding:10px;">'+(i+1)+". "+questions[index][0].question+'</div> <div class="option option-a" style="padding:10px;">'+"A. "+questions[index][0].optionA+'</div> <div class="option option-b" style="padding:10px;">'+"B. "+questions[index][0].optionB+'</div> <div class="option option-c" style="padding:10px;">'+"C. "+questions[index][0].optionC+'</div>  <div class="option option-d" style="padding:10px;">'+"D. "+questions[index][0].optionD+'</div>'
+
+//         // resultSection.append(el)
+//         // // console.log(i+"items added")
+
+//         // console.log(selectedAnswer)
+//         // console.log(questions[index][0]["option"+selectedAnswer] == questions[index][0].correctAnswer)
+
+//         // if(questions[index][0]["option"+selectedAnswer] == questions[index][0].correctAnswer) {
+//         //     switch(selectedAnswer) {
+//         //         case "A": document.querySelector(".option-a").style.border = "1px solid green"; break;
+//         //         case "B": document.querySelector(".option-b").style.border = "1px solid green"; break;
+//         //         case "C": document.querySelector(".option-c").style.border = "1px solid green"; break;
+//         //         case "D": document.querySelector(".option-d").style.border = "1px solid green"; break;
+//         //         default: document.querySelector(".question").style.border = "1px solid red";
+//         //     }
+            
+//         // }
+//         // else {
+            
+//         //     switch(selectedAnswer) {
+//         //         case "A": document.querySelector(".option-a").style.color = "red"; break;
+//         //         case "B": document.querySelector(".option-b").style.color = "red"; break;
+//         //         case "C": document.querySelector(".option-c").style.color = "red"; break;
+//         //         case "D": document.querySelector(".option-d").style.color = "red"; break;
+//         //         // default: document.querySelector(".question").style.color = "red";
+//         //     }
+//         //     // document.querySelector(".option-"+selectedAnswer.toLowerCase()).style.color = "red"
+//         // }
+
+
+        
+            
+
+        
+
+//     }
+//     // for(let j =0; j<questions.length; j++) {
+//     //     if(questions[j][0].correctAnswer == questions[j][0].optionA || questions[j][0].correctAnswer == questions[j][0].optionB || questions[j][0].correctAnswer == questions[j][0].optionC || questions[j][0].correctAnswer == questions[j][0].optionD) {
+//     //         console.log("correct"+j)
+//     //     }
+//     //     else {
+//     //         console.log("incorrect : "+j)
+//     //     }
+//     // }
+
+//     document.querySelector("#result-section").style.display = "flex"
+// }

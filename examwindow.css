@@ -1,5 +1,7 @@
 :root {
     --selected-color: rgb(79, 184, 79);
+    --header-height: 60px;
+    --top-ribbon-height: 40px;
 }
 
 * {
@@ -19,7 +21,7 @@
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* overflow: hidden; */
+    /* overflow:auto; */
 }
 
 
@@ -29,7 +31,7 @@ header,.left,.right {
     align-items: center;
     justify-content: space-between;
     /* padding: 10px 30px; */
-    
+    max-height: var(--header-height);
 }
 
 header {
@@ -53,6 +55,9 @@ header {
     align-items: center;
     color: #eee;
     padding: 0 30px;
+    max-height: var(--top-ribbon-height);
+    position: sticky;
+    top: 0;
 }
 
 #top-ribbon input[type="radio"] {
@@ -92,7 +97,12 @@ header {
 main {
     background-color: whitesmoke;
     display: flex;
-    max-height: calc(100vh - 50px);
+    height: calc(100vh - 100px);
+    /* min-height: 100vh; */
+    /* overflow: hidden; */
+    /* position: fixed; */
+    /* position: sticky; */
+    
 }
 
 /* left section */
@@ -101,6 +111,7 @@ main {
     min-width: 75vw;
     border-right: 2px solid grey;
     padding: 30px;
+    overflow: scroll;
 }
 
 .question-container {
@@ -194,6 +205,8 @@ main {
     width: 25vw;
     background: whitesmoke ;
     padding: 30px;
+    overflow: scroll;
+    
 }
 
 .grid-container {
@@ -201,6 +214,10 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
     grid-gap: 1.3rem;
+    /* max-height: 300px; */
+    /* overflow: scroll; */
+    /* margin: 20px; */
+    /* padding: 30px; */
 }
 
 .question-btn {
@@ -316,6 +333,8 @@ main {
     background-color: whitesmoke;
     width: 100%;
     padding: 40px;
+    min-height: 100vh;
+    overflow: scroll;
 }
 
 .flex-items {
@@ -324,11 +343,6 @@ main {
     margin: 10px 0;
     width: 100%;
 }
-
-
-
-
-
 
 
 
