@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="examwindow.css">
 
 </head>
-<body onload="loadQuestionBtns()" class="unselectable" onmousedown="return false" oncontextmenu="return false">
+<!-- loadQuestionBtns() -->
+<body onload="addQuestionFile()" class="unselectable" onmousedown="return false" oncontextmenu="return false">
     <header>
         <img id="logo" src="images/logo.png" alt="oipl logo">
-        <h1 id="title">Online Examination System</h1>
+        <h1 id="title">Examination System</h1>
         <button class="btn" id="submit-btn" onclick="submitExam('userSubmitted')">Submit</button>
 
         
@@ -36,10 +37,21 @@
         </div> -->
 
         <div class="timer">
-            <span>Times left : </span>
+            <span class="text">Times left : </span>
             <span id="minutes">00</span> : 
             <span id="seconds">00</span>
         </div>
+
+
+        <label for="menu-btn-check">
+            <input type="checkbox" name="menu-btn" id="menu-btn-check" onchange="toggleMenu()">
+            <div id="menu-btn">
+                <span class="top line"></span>
+                <span class="middle line"></span>
+                <span class="bottom line"></span>
+            </div>
+        </label>
+
     </section>
 
     <main>
@@ -85,7 +97,7 @@
                 <button id="prev-btn" class="btn" onclick="goToPrev()">Prev</button>
                 <p id="msg">Please select an option</p>
                 <!-- <button id="clear-btn" class="btn" onclick="alert('clear clicked')">Clear Answer</button> -->
-                <button id="next-btn" class="btn" onclick="saveAnswer()">Save & Next</button>
+                <button id="next-btn" class="btn" onclick="saveAnswer()">Save&nbsp;&&nbsp;Next</button>
             </div>
 
         </section>
@@ -134,7 +146,74 @@
     </section>
 
     <!-- <script src="timer.js"></script> -->
-    <script src="fundamental.js"></script>
+    <!--- <script src="fundamental.js"></script> -->
+
+    <script>
+        function addQuestionFile() {
+
+            if(window.localStorage.getItem("username") == null || window.localStorage.getItem("username") == undefined)
+            {
+                // console.log("returned to home")
+                window.open("index.html","_self")
+            }
+            else {
+
+
+                let url = window.location.search.toString()
+                let i = url.indexOf("=")
+                let testId = url.substring(i+1)
+                console.log(testId)
+
+                if(testId!="") {
+
+                    // create empty file to place js file name into it
+                    let fileName = NaN
+                    for (let index = 0; index < tests.length; index++) {
+                        if(tests[index].id == testId) {
+                            fileName = tests[index].filename
+                        }
+                
+                    }
+
+
+                    let fileScript = document.createElement("script")
+                    fileScript.src = fileName    
+
+                    try {
+                
+                        document.body.append(fileScript)
+
+                    } 
+                    catch (error) {
+                        console.log("Questions File Not Found\n"+error)
+                    }
+                
+
+                    fileScript.onload = function() {
+                        // startTimer()
+                        loadQuestionBtns();
+                    }
+                }
+                else {
+                    alert("Questions Not Found!\nPlease Start over...!")
+                    window.open("assesment.html","_self")
+                }
+
+
+            }
+
+
+            
+
+
+
+
+        }
+    </script>
+
+
+
+    <script src="testnames.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

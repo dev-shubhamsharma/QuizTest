@@ -91,6 +91,26 @@ header {
     font-size: large;
 }
 
+#menu-btn-check {
+    display: none;
+}
+
+#menu-btn {
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid #fff; */
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: none;
+}
+
+#menu-btn .line {
+    background-color: #fff;
+    height: 3px;
+    border-radius: 3px;
+}
+
 
 /* main section */
 
@@ -345,6 +365,94 @@ main {
 }
 
 
+
+
+/*****************  for responsive screen  *********************/
+
+@media(max-width: 700px) {
+
+    
+
+    #title {
+        font-size: 1.4rem;
+        /* visibility: hidden;
+        position: relative; */
+    }
+/* 
+    #title::after {
+        content: 'Online Exam';
+        visibility: visible;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    } */
+
+    #left-section {
+        min-width: 100%;
+        /* overflow: visible; */
+    }
+
+    #result-section {
+        display: none;
+    }
+
+    #top-ribbon {
+        padding: 0 30px;
+    }
+
+    #mcq-btn, #truefalse-btn {
+        padding: 0;
+        background: transparent !important;
+    }
+
+
+    .timer .text {
+        display: none;
+    }
+
+    #truefalse-btn {
+        display: none;
+    }
+
+    #menu-btn {
+        display: flex;
+    }
+
+    body {
+        /* overflow: hidden; */
+        /* border: 1px solid blue; */
+    }
+
+    main {
+        /* overflow: hidden; */
+        max-width: 100vh;
+        /* border: 1px solid red; */
+        /* overflow: hidden; */
+    }
+
+
+    #right-section {
+        position: absolute;
+        top: calc(--header-height + 40px);
+        left: -100%;
+        width: 100vw;
+        height: calc(100vh - 100px);
+        /* overflow: scroll; */
+
+        transition: left 0.2s ease-in ;
+
+    }
+
+    #right-section.open {
+        left: 0;
+    }
+
+    #mcq-radio:checked ~ #mcq-btn {
+        background-color: transparent !important;
+        /* border: 1px solid red;  */
+    }
+
+}
 
 
 

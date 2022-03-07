@@ -26,7 +26,7 @@ function validateUser() {
             let url = window.location.search.toString()
             let i = url.indexOf("=")
             // console.log(url.substring(i+1))
-            window.open("ExamWindow.html?testname="+url.substring(i+1),"_self")
+            window.open("newExamWindow.html?testname="+url.substring(i+1),"_self")
             clearTimeout(timeout)
         },5000)
     }

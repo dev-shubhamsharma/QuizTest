@@ -1,12 +1,17 @@
 
+// ***********   CHANGE VARIABLES HERE FOR CHANGE TEST *******************
 
 var totalQuestionsForTest = 10
-
 var totalQuestionAddedInList = 10
+
+// *******************************************
+
+
 var currentBtnIdNo = 0
 
 var prevBtnId = ""
 var indexList = []
+
 
 
 function loadQuestionBtns() {
@@ -311,6 +316,12 @@ function showResult() {
 }
 
 
+function toggleMenu() {
+    document.querySelector("#right-section").classList.toggle("open");
+}
+
+
+
 // function showResult() {
 
 //     // hide the overlay
@@ -391,3 +402,8 @@ function showResult() {
 
 //     document.querySelector("#result-section").style.display = "flex"
 // }
+
+
+
+
+

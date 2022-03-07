@@ -5,7 +5,7 @@ const tests = [
         timeInMinutes : "20",
         imgUrl : "images/python.png",
         id :"intro",
-        filename:"introduction.js",
+        filename:"fundamental.js",
         questionsAddedInFile:"59"
 
     },
